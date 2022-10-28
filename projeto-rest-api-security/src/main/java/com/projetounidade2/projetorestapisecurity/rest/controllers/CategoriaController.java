@@ -1,9 +1,13 @@
 package com.projetounidade2.projetorestapisecurity.rest.controllers;
 
+import java.net.URI;
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.projetounidade2.projetorestapisecurity.model.Categoria;
+import com.projetounidade2.projetorestapisecurity.rest.dto.CategoriaDTO;
+import com.projetounidade2.projetorestapisecurity.rest.form.CategoriaForm;
 import com.projetounidade2.projetorestapisecurity.service.CategoriaService;
 
 @RestController
@@ -32,8 +40,12 @@ public class CategoriaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Categoria save(@RequestBody Categoria categoria) {
-        return categoriaService.saveCategoria(categoria);
+    public ResponseEntity<CategoriaDTO> save(@RequestBody @Valid CategoriaForm form, UriComponentsBuilder uriBuilder) {
+        Categoria categoria = form.converter();
+        categoriaService.saveCategoria(categoria);
+
+        URI uri = uriBuilder.path("/categorias/{id}").buildAndExpand(categoria.getId()).toUri();
+        return ResponseEntity.created(uri).body(new CategoriaDTO(categoria));
     }
 
     @PutMapping("{id}")

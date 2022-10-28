@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-
+@Builder
 @Entity
 @Table(name = "categoria")
 public class Categoria {
@@ -23,5 +23,9 @@ public class Categoria {
 
     @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
     private List<Questao> questoes;
+
+    public Categoria(String categoria) {
+        this.categoria = categoria;
+    }
 
 }
