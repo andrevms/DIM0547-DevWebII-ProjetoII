@@ -25,7 +25,7 @@ public class Questao {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "resposta_id")
     private Alternativa resposta;
 
