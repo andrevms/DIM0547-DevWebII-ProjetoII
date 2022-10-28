@@ -1,13 +1,13 @@
-package br.com.projetorestsecurity.springrestsecurityapi;
+package com.projetounidade2.projetorestapisecurity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringRestSecurityApiApplication {
+public class ProjetoRestApiSecurityApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringRestSecurityApiApplication.class, args);
+		SpringApplication.run(ProjetoRestApiSecurityApplication.class, args);
 	}
 
 }
