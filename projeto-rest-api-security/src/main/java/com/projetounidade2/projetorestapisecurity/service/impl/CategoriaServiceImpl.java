@@ -1,15 +1,16 @@
 package com.projetounidade2.projetorestapisecurity.service.impl;
-/* 
+ 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.imd.projeto.web.estudaconcursos.model.Categoria;
-import br.com.imd.projeto.web.estudaconcursos.repository.CategoriaRepository;
+import com.projetounidade2.projetorestapisecurity.model.Categoria;
+import com.projetounidade2.projetorestapisecurity.repository.CategoriaRepository;
+import com.projetounidade2.projetorestapisecurity.service.CategoriaService;
 
 @Component
-public class CategoriaServiceImpl  implements CategoriaService{
+public class CategoriaServiceImpl  implements CategoriaService {
     
     @Autowired
     CategoriaRepository categoriaRepository;
@@ -46,4 +47,3 @@ public class CategoriaServiceImpl  implements CategoriaService{
         categoriaRepository.save(cat);
     }
 }
-*/

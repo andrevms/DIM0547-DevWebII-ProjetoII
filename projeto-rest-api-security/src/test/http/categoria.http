@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:8080/api/categoria
+@contentType = application/json
+
+GET {{baseUrl}}
+
+###
+
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+    "categoria": "avançado"
+}
+
+###
+
+PUT {{baseUrl}}/4
+Content-Type: {{contentType}}
+
+{
+    "categoria": "intermediario"
+}
+
+###
+
+DELETE {{baseUrl}}/2
