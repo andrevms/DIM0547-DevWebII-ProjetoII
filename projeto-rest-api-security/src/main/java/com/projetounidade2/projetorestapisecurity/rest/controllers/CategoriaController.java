@@ -27,7 +27,7 @@ import com.projetounidade2.projetorestapisecurity.rest.form.CategoriaForm;
 import com.projetounidade2.projetorestapisecurity.service.CategoriaService;
 
 @RestController
-@RequestMapping("api/categoria")
+@RequestMapping("api/categorias")
 public class CategoriaController {
 
     @Autowired

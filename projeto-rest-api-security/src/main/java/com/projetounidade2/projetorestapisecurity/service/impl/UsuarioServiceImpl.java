@@ -1,9 +1,10 @@
 package com.projetounidade2.projetorestapisecurity.service.impl;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -41,31 +42,12 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-
-        Usuario usuario = repository.findByEmail(email);
-
-        String[] roles = usuario.isAdmin() ? new String[] { "ADMIN", "USER" } : new String[] { "USER" };
-
-        return User
-                .builder()
-                .username(usuario.getEmail())
-                .password(usuario.getSenha())
-                .roles(roles)
-                .build();
-
-        /*
-         * Usuário em memória
-         * if(!username.equals("cicrano")){
-         * throw new UsernameNotFoundException("Usuário não encontrado na base.");
-         * }
-         * 
-         * return User
-         * .builder()
-         * .username("cicrano")
-         * .password(passwordEncoder.encode("123"))
-         * .roles("USER")
-         * .build();
-         */
+        Optional<Usuario> usuario = repository.findByEmail(email);
+		if (usuario.isPresent()) {
+			return usuario.get();
+		}
+		
+		throw new UsernameNotFoundException("Dados inválidos!");
     }
 
 }
