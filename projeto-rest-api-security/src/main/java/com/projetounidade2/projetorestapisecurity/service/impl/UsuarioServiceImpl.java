@@ -1,47 +1,71 @@
 package com.projetounidade2.projetorestapisecurity.service.impl;
 
-/* 
-import java.util.List;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import br.com.imd.projeto.web.estudaconcursos.model.Usuario;
-import br.com.imd.projeto.web.estudaconcursos.repository.UsuarioRepository;
+import com.projetounidade2.projetorestapisecurity.exception.SenhaInvalidaException;
+import com.projetounidade2.projetorestapisecurity.model.Usuario;
+import com.projetounidade2.projetorestapisecurity.repository.UsuarioRepository;
 
 @Component
-public class UsuarioServiceImpl implements UsuarioService {
+public class UsuarioServiceImpl implements UserDetailsService {
+
     @Autowired
-    UsuarioRepository usuarioRepository;
+    public PasswordEncoder passwordEncoder;
 
-    @Override
-    public Usuario saveUsuario(Usuario usuario) {
-        return usuarioRepository.save(usuario);
+    @Autowired
+    private UsuarioRepository repository;
+
+    @Transactional
+    public Usuario salvar(Usuario usuario) {
+        return repository.save(usuario);
     }
 
-    @Override
-    public void removeUsuario(Usuario usuario) {
-       usuarioRepository.delete(usuario);
-    }
+    public UserDetails autenticar( Usuario usuario ){
+        UserDetails user = loadUserByUsername(usuario.getEmail());
+        boolean senhasBatem = passwordEncoder.matches( usuario.getSenha(), user.getPassword() );
 
-    @Override
-    public Usuario getUsuarioById(Integer id) {
-        return usuarioRepository.findById(id).map(user -> {
+        if(senhasBatem){
             return user;
-        }).orElseThrow(() -> null);
+        }
+
+        throw new SenhaInvalidaException();
     }
 
     @Override
-    public List<Usuario> getListUsuario() {
-        return usuarioRepository.findAll();
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+        Usuario usuario = repository.findByEmail(email);
+
+        String[] roles = usuario.isAdmin() ? new String[] { "ADMIN", "USER" } : new String[] { "USER" };
+
+        return User
+                .builder()
+                .username(usuario.getEmail())
+                .password(usuario.getSenha())
+                .roles(roles)
+                .build();
+
+        /*
+         * Usuário em memória
+         * if(!username.equals("cicrano")){
+         * throw new UsernameNotFoundException("Usuário não encontrado na base.");
+         * }
+         * 
+         * return User
+         * .builder()
+         * .username("cicrano")
+         * .password(passwordEncoder.encode("123"))
+         * .roles("USER")
+         * .build();
+         */
     }
 
-    @Override
-    public boolean login(String email, String senha) {
-        var usuario = usuarioRepository.getUsuarioByLogin(email, senha);
-        if (usuario.size() > 0) return true;
-        return false;
-    }    
-    
 }
-*/
