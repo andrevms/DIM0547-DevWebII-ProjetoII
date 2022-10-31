@@ -37,9 +37,39 @@ public class SecurityConfig {
             .authorizeHttpRequests((authz) -> {
                 try {
                     authz
-                        .antMatchers("/api/categorias/**").hasRole("MOD")
+                        .antMatchers("/api/alternativas/**")
+                            .hasAnyRole("ADMIN","CLIENTEFREE", "CLIENTEPRO")
+
+                        .antMatchers(HttpMethod.GET, "/api/categorias/**")
+                            .permitAll()
+
+                        .antMatchers("/api/categorias/**")
+                            .hasRole("ADMIN")
+
+                        .antMatchers(HttpMethod.GET, "/api/listaDeEstudos/**")
+                            .permitAll()
+
+                        .antMatchers(HttpMethod.PATCH, "/api/listaDeEstudos/**")
+                            .permitAll()
+
+                        .antMatchers("/api/listaDeEstudos/**")
+                            .hasAnyRole("ADMIN","CLIENTEPRO")
+
+                        .antMatchers("/api/perfis/**")
+                            .hasRole("ADMIN")
+
+                        .antMatchers("/api/provas/**")
+                            .hasAnyRole("ADMIN","CLIENTEPRO")
+
+                        .antMatchers("/api/questoes/**")
+                            .hasAnyRole("ADMIN","CLIENTEFREE", "CLIENTEPRO")
+
                         .antMatchers(HttpMethod.POST, "/api/usuarios/**")
                             .permitAll()
+
+                        .antMatchers("/api/usuarios/**")
+                            .hasRole("ADMIN")
+                        
                         .anyRequest().authenticated()   
                         .and() 
                             .sessionManagement()
