@@ -25,6 +25,7 @@ public class Alternativa {
     @JoinColumn(name="questao_id", nullable=false)
     private Questao questao;
 
+    // ???
     @ManyToMany(mappedBy = "alternativas")
     private List<Questao> questoes;
 }
