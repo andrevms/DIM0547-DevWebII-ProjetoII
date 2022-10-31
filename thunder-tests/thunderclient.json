@@ -1,0 +1,68 @@
+[
+  {
+    "_id": "cdb56043-e6fd-4a06-81de-b5f6cc2880bb",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "",
+    "name": "criar",
+    "url": "http://localhost:8080/api/alternativa",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-10-29T17:51:56.810Z",
+    "modified": "2022-10-30T00:45:14.193Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"questaoId\": 1,\n  \"alternativa\": \"O valor é igual a vinte\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "064708c9-cb56-439c-82fd-584545e65acc",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "",
+    "name": "listar_por_questao_id",
+    "url": "http://localhost:8080/api/alternativa/questao/1",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-10-30T01:15:32.162Z",
+    "modified": "2022-10-30T01:16:53.391Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "3a4ed0f8-d722-40a3-8f91-0085885ddeec",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "",
+    "name": "atualizar",
+    "url": "http://localhost:8080/api/alternativa/1",
+    "method": "PATCH",
+    "sortNum": 30000,
+    "created": "2022-10-31T20:27:26.022Z",
+    "modified": "2022-10-31T20:28:07.759Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"alternativa\": \"change alterantiva\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "364f149d-56c0-451f-ad09-51b57d3574c4",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "",
+    "name": "remover",
+    "url": "http://localhost:8080/api/alternativa/1",
+    "method": "DELETE",
+    "sortNum": 40000,
+    "created": "2022-10-31T20:58:20.162Z",
+    "modified": "2022-10-31T20:58:26.878Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
