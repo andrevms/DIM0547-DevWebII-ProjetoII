@@ -1,11 +1,12 @@
 package com.projetounidade2.projetorestapisecurity.service.impl;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -13,9 +14,10 @@ import org.springframework.stereotype.Component;
 import com.projetounidade2.projetorestapisecurity.exception.SenhaInvalidaException;
 import com.projetounidade2.projetorestapisecurity.model.Usuario;
 import com.projetounidade2.projetorestapisecurity.repository.UsuarioRepository;
+import com.projetounidade2.projetorestapisecurity.service.UsuarioService;
 
 @Component
-public class UsuarioServiceImpl implements UserDetailsService {
+public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     public PasswordEncoder passwordEncoder;
@@ -24,6 +26,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
     private UsuarioRepository repository;
 
     @Transactional
+    @Override
     public Usuario salvar(Usuario usuario) {
         return repository.save(usuario);
     }
@@ -41,31 +44,29 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Optional<Usuario> usuario = repository.findByEmail(email);
+		if (usuario.isPresent()) {
+			return usuario.get();
+		}
+		
+		throw new UsernameNotFoundException("Dados inválidos!");
+    }
 
-        Usuario usuario = repository.findByEmail(email);
+    @Override
+    public void removeUsuario(Usuario usuario) {
+        repository.delete(usuario);
+    }
 
-        String[] roles = usuario.isAdmin() ? new String[] { "ADMIN", "USER" } : new String[] { "USER" };
+    @Override
+    public Usuario getUsuarioById(Integer id) {
+        return repository.findById(id).map(user -> {
+            return user;
+        }).orElseThrow(() -> null);
+    }
 
-        return User
-                .builder()
-                .username(usuario.getEmail())
-                .password(usuario.getSenha())
-                .roles(roles)
-                .build();
-
-        /*
-         * Usuário em memória
-         * if(!username.equals("cicrano")){
-         * throw new UsernameNotFoundException("Usuário não encontrado na base.");
-         * }
-         * 
-         * return User
-         * .builder()
-         * .username("cicrano")
-         * .password(passwordEncoder.encode("123"))
-         * .roles("USER")
-         * .build();
-         */
+    @Override
+    public List<Usuario> getListUsuario() {
+        return repository.findAll();
     }
 
 }

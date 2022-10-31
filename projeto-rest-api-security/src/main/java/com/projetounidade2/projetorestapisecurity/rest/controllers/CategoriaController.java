@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.projetounidade2.projetorestapisecurity.model.Categoria;
@@ -27,7 +26,7 @@ import com.projetounidade2.projetorestapisecurity.rest.form.CategoriaForm;
 import com.projetounidade2.projetorestapisecurity.service.CategoriaService;
 
 @RestController
-@RequestMapping("api/categoria")
+@RequestMapping("api/categorias")
 public class CategoriaController {
 
     @Autowired

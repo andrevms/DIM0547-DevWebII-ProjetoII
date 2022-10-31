@@ -1,6 +1,5 @@
 package com.projetounidade2.projetorestapisecurity.model;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -45,10 +44,11 @@ public class Usuario implements UserDetails {
     private List<ListaDeEstudos> listaDeEstudos;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Perfil> perfis = new ArrayList<>();
+    private List<Perfil> perfis;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        System.out.println(this.perfis);
         return this.perfis;
     }
 
