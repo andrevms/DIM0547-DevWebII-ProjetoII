@@ -13,8 +13,11 @@ import com.projetounidade2.projetorestapisecurity.exception.SenhaInvalidaExcepti
 import com.projetounidade2.projetorestapisecurity.model.Usuario;
 import com.projetounidade2.projetorestapisecurity.rest.form.LoginForm;
 import com.projetounidade2.projetorestapisecurity.rest.dto.TokenDTO;
+import com.projetounidade2.projetorestapisecurity.rest.dto.UsuarioDTO;
 import com.projetounidade2.projetorestapisecurity.security.JwtService;
 import com.projetounidade2.projetorestapisecurity.service.impl.UsuarioServiceImpl;
+
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -27,6 +30,12 @@ public class UsuarioController {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
+    @GetMapping
+    public List<Usuario> getUsuarios() {
+        return usuarioService.getListUsuario();
+    }
+
+    
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario salvar( @RequestBody @Valid Usuario usuario ){

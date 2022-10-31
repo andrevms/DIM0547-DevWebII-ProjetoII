@@ -1,12 +1,12 @@
 package com.projetounidade2.projetorestapisecurity.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -14,9 +14,10 @@ import org.springframework.stereotype.Component;
 import com.projetounidade2.projetorestapisecurity.exception.SenhaInvalidaException;
 import com.projetounidade2.projetorestapisecurity.model.Usuario;
 import com.projetounidade2.projetorestapisecurity.repository.UsuarioRepository;
+import com.projetounidade2.projetorestapisecurity.service.UsuarioService;
 
 @Component
-public class UsuarioServiceImpl implements UserDetailsService {
+public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     public PasswordEncoder passwordEncoder;
@@ -25,6 +26,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
     private UsuarioRepository repository;
 
     @Transactional
+    @Override
     public Usuario salvar(Usuario usuario) {
         return repository.save(usuario);
     }
@@ -48,6 +50,23 @@ public class UsuarioServiceImpl implements UserDetailsService {
 		}
 		
 		throw new UsernameNotFoundException("Dados inválidos!");
+    }
+
+    @Override
+    public void removeUsuario(Usuario usuario) {
+        repository.delete(usuario);
+    }
+
+    @Override
+    public Usuario getUsuarioById(Integer id) {
+        return repository.findById(id).map(user -> {
+            return user;
+        }).orElseThrow(() -> null);
+    }
+
+    @Override
+    public List<Usuario> getListUsuario() {
+        return repository.findAll();
     }
 
 }
