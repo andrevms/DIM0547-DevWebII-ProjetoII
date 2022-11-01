@@ -24,4 +24,6 @@ public class ListaDeEstudos {
     @OneToMany(fetch = FetchType.EAGER)
     private List<Questao> questoes;
 
+    @ManyToOne()
+    private Usuario usuario;
 }

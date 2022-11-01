@@ -9,11 +9,15 @@ import com.projetounidade2.projetorestapisecurity.model.ListaDeEstudos;
 @Service
 public interface ListaDeEstudosService {
 
-    public ListaDeEstudos saveListaDeEstudos(ListaDeEstudos listaDeEstudos);
+    // public ListaDeEstudos criar(CriarListaDeEstudosDto params);
+    // public ListaDeEstudos atualizar(AtualizarListaDeEstudosDto params);
+    public void remover(int id);
 
-    public void removeListaDeEstudos(ListaDeEstudos listaDeEstudos);
+    /**
+     * Lista todas as "listas de estudo" do usuário logado
+     * @return
+     */
+    public List<ListaDeEstudos> listar();
 
-    public ListaDeEstudos getListaDeEstudosById(Integer id);
-
-    public List<ListaDeEstudos> getListListaDeEstudos();
+    public void adicionarQuestao(int listaId, int questaoId);
 }
