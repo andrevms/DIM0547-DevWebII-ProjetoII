@@ -1,7 +1,5 @@
 package com.projetounidade2.projetorestapisecurity.model;
 
-import java.util.List;
-
 import javax.persistence.*;
 import lombok.*;
 
@@ -24,8 +22,4 @@ public class Alternativa {
     @ManyToOne
     @JoinColumn(name="questao_id", nullable=false)
     private Questao questao;
-
-    // ???
-    @ManyToMany(mappedBy = "alternativas")
-    private List<Questao> questoes;
 }
