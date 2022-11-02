@@ -6,10 +6,12 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.projetounidade2.projetorestapisecurity.exception.RegraNegocioException;
 import com.projetounidade2.projetorestapisecurity.exception.SenhaInvalidaException;
@@ -31,6 +33,15 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario salvar(Usuario usuario) {
         return repository.save(usuario);
+    }
+
+    @Override
+    public Boolean isEmailNotUsed(Usuario usuario) {
+        Optional<Usuario> a = repository.findByEmail(usuario.getEmail());
+        if(!a.isPresent()){
+            return true;
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Email já Cadastrado");
     }
 
     @Transactional

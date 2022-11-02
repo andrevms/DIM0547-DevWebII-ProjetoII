@@ -1,11 +1,7 @@
 package com.projetounidade2.projetorestapisecurity.rest.dto;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
-import org.springframework.boot.context.properties.ConstructorBinding;
 
 import com.projetounidade2.projetorestapisecurity.model.Permissao;
 

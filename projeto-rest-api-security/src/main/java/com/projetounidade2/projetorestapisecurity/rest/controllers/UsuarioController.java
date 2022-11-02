@@ -55,10 +55,14 @@ public class UsuarioController {
     
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UsuarioDTO salvar( @RequestBody @Valid Usuario usuario ){
-        String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
-        usuario.setSenha(senhaCriptografada);
-        return UsuarioDTO.converter(usuarioService.salvar(usuario));
+    public UsuarioDTO salvar( @RequestBody @Valid Usuario usuario ) {
+        if(usuarioService.isEmailNotUsed(usuario)){
+            String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+            usuario.setSenha(senhaCriptografada);
+            return UsuarioDTO.converter(usuarioService.salvar(usuario));
+        }else{
+            return null;
+        }
     }
 
     @PostMapping("/auth")
