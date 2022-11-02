@@ -44,8 +44,7 @@ public class SecurityConfig {
                             .permitAll()
 
                         .antMatchers("/api/categorias/**")
-                            .permitAll()
-                            // .hasRole("ADMIN")
+                            .hasRole("ADMIN")
 
                         .antMatchers(HttpMethod.GET, "/api/listaDeEstudos/**")
                             .permitAll()

@@ -155,16 +155,16 @@
     "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
     "containerId": "53a08ddc-1e84-4c02-a1fa-2ef123ea29b2",
     "name": "put",
-    "url": "/permissoes/1",
+    "url": "/permissoes/2",
     "method": "PUT",
     "sortNum": 110000,
     "created": "2022-11-02T02:22:38.712Z",
-    "modified": "2022-11-02T02:56:20.941Z",
+    "modified": "2022-11-02T04:58:16.453Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"nome\": \"CLIENTEFREE\"\n}",
+      "raw": "{\n    \"nome\": \"CLIENTEPRO\"\n}",
       "form": []
     },
     "tests": []
@@ -206,12 +206,12 @@
     "method": "POST",
     "sortNum": 140000,
     "created": "2022-11-02T02:25:28.090Z",
-    "modified": "2022-11-02T02:27:15.957Z",
+    "modified": "2022-11-02T06:05:53.910Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"categoria\": \"avançado\"\n}\n",
+      "raw": "{\n    \"categoria\": \"basico\"\n}\n",
       "form": []
     },
     "tests": []
@@ -258,7 +258,7 @@
     "method": "POST",
     "sortNum": 170000,
     "created": "2022-11-02T02:32:35.540Z",
-    "modified": "2022-11-02T02:34:53.220Z",
+    "modified": "2022-11-02T06:00:02.251Z",
     "headers": [],
     "params": [],
     "body": {
@@ -266,6 +266,20 @@
       "raw": "{\n    \"nomePermissao\": \"ADMIN\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "2db9c523-7c7f-47e0-9573-c5ce1d3debc1",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "03f8be16-2b66-4768-9ff5-9067191ef14e",
+    "name": "info",
+    "url": "/usuarios/info",
+    "method": "GET",
+    "sortNum": 180000,
+    "created": "2022-11-02T06:06:49.510Z",
+    "modified": "2022-11-02T06:07:05.422Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]

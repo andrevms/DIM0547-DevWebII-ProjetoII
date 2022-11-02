@@ -12,6 +12,8 @@ public interface PermissaoService {
 
     public void removePermissao(Long id);
 
+    Permissao getPermissaoByNome(String nome); 
+
     public Permissao getPermissaoById(Long id);
 
     public List<Permissao> getListPermissao();

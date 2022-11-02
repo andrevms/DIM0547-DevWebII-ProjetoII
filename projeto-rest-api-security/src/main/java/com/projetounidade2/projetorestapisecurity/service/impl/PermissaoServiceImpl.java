@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.projetounidade2.projetorestapisecurity.exception.RegraNegocioException;
 import com.projetounidade2.projetorestapisecurity.model.Permissao;
 import com.projetounidade2.projetorestapisecurity.repository.PermissaoRepository;
 import com.projetounidade2.projetorestapisecurity.service.PermissaoService;
@@ -35,7 +36,20 @@ public class PermissaoServiceImpl implements PermissaoService {
                                 return permissao;
                             }
                         ).orElseThrow(
-                            () -> null
+                            () -> new RegraNegocioException("Permissão '" + id + "' não foi encontrada")
+                        );
+    }
+
+    @Override
+    public Permissao getPermissaoByNome(String nome) {
+        return permissaoRepository
+                        .findByNome(nome)
+                        .map(
+                            permissao -> {
+                                return permissao;
+                            }
+                        ).orElseThrow(
+                            () -> new RegraNegocioException("Permissão '" + nome + "' não foi encontrada")
                         );
     }
 
