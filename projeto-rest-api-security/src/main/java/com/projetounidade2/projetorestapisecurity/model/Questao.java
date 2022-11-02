@@ -37,5 +37,10 @@ public class Questao {
 
     @ManyToMany(mappedBy = "questoes")
     private List<Prova> provas;
+
+    //Funções
+    public Questao(String enunciado){
+        this.enunciado = enunciado;
+    }
     
 }
