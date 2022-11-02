@@ -3,7 +3,7 @@ package com.projetounidade2.projetorestapisecurity.rest.form;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.projetounidade2.projetorestapisecurity.model.Perfil;
+import com.projetounidade2.projetorestapisecurity.model.Permissao;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,15 +12,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PerfilForm {
+public class PermissaoForm {
 
     @NotBlank @NotNull
     private String nome;
 
-    public Perfil converter() {
-        Perfil perfil = new Perfil();
-        perfil.setNome(this.nome);
-        return perfil;
+    public Permissao converter() {
+        Permissao permissao = new Permissao();
+        permissao.setNome("ROLE_" + this.nome);
+        return permissao;
     }
 
 }

@@ -37,19 +37,16 @@ public class Usuario implements UserDetails {
     @NotEmpty
     private String senha;
 
-    @Column
-    private boolean admin;
-
     @OneToMany(fetch = FetchType.LAZY)
     private List<ListaDeEstudos> listaDeEstudos;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Perfil> perfis;
+    private List<Permissao> permissoes;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        System.out.println(this.perfis);
-        return this.perfis;
+        System.out.println(this.permissoes);
+        return this.permissoes;
     }
 
     @Override

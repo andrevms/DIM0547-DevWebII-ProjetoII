@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.boot.context.properties.ConstructorBinding;
 
-import com.projetounidade2.projetorestapisecurity.model.Perfil;
+import com.projetounidade2.projetorestapisecurity.model.Permissao;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,17 +16,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PerfilDTO {
+public class PermissaoDTO {
 
     private Long id;
     private String nome;
 
-    public PerfilDTO(Perfil perfil) {
-        this.id = perfil.getId();
-        this.nome = perfil.getNome();
+    public PermissaoDTO(Permissao permissao) {
+        this.id = permissao.getId();
+        this.nome = permissao.getNome();
     }
 
-    public static List<PerfilDTO> converter(List<Perfil> perfis) {
-        return perfis.stream().map(PerfilDTO::new).collect(Collectors.toList());
+    public static List<PermissaoDTO> converter(List<Permissao> permissoes) {
+        return permissoes.stream().map(PermissaoDTO::new).collect(Collectors.toList());
     }
 }

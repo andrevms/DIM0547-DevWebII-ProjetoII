@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "_id": "a83df0b1-b81e-42fc-9e75-c71b0875be6d",
+    "name": "projeto-rest-api-security",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-11-02T01:56:28.541Z",
+    "modified": "2022-11-02T02:20:20.493Z",
+    "data": [
+      {
+        "name": "tokenadmin",
+        "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2NjczNzM1Mjh9.cx6vz1smkijmFGJcgY-SNJJULTyoL_KzsNrjWfbgbDl5h5YQTZRb7ynKdeijL7hrPVLR8FAsvbM9-ix7dFl9QA"
+      }
+    ]
+  }
+]

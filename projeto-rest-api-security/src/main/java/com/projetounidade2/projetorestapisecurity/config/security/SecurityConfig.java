@@ -44,7 +44,8 @@ public class SecurityConfig {
                             .permitAll()
 
                         .antMatchers("/api/categorias/**")
-                            .hasRole("ADMIN")
+                            .permitAll()
+                            // .hasRole("ADMIN")
 
                         .antMatchers(HttpMethod.GET, "/api/listaDeEstudos/**")
                             .permitAll()
@@ -55,8 +56,9 @@ public class SecurityConfig {
                         .antMatchers("/api/listaDeEstudos/**")
                             .hasAnyRole("ADMIN","CLIENTEPRO")
 
-                        .antMatchers("/api/perfis/**")
-                            .hasRole("ADMIN")
+                        .antMatchers("/api/permissoes/**")
+                            .permitAll()
+                            // .hasRole("ADMIN")
 
                         .antMatchers("/api/provas/**")
                             .hasAnyRole("ADMIN","CLIENTEPRO")
@@ -68,7 +70,8 @@ public class SecurityConfig {
                             .permitAll()
 
                         .antMatchers("/api/usuarios/**")
-                            .hasRole("ADMIN")
+                            .permitAll()
+                            // .hasRole("ADMIN")
                         
                         .anyRequest().authenticated()   
                         .and() 

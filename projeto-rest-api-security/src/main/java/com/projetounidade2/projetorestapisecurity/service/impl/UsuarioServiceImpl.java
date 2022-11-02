@@ -68,5 +68,4 @@ public class UsuarioServiceImpl implements UsuarioService {
     public List<Usuario> getListUsuario() {
         return repository.findAll();
     }
-
 }

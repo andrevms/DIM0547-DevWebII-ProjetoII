@@ -16,8 +16,8 @@ import lombok.ToString;
 @Setter
 @Entity
 @ToString
-@Table(name = "perfil")
-public class Perfil implements GrantedAuthority {
+@Table(name = "permissao")
+public class Permissao implements GrantedAuthority {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

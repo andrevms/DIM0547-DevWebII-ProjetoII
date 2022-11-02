@@ -31,17 +31,16 @@ public class UsuarioController {
     private final JwtService jwtService;
 
     @GetMapping
-    public List<Usuario> getUsuarios() {
-        return usuarioService.getListUsuario();
+    public List<UsuarioDTO> find() {
+       return UsuarioDTO.converter(usuarioService.getListUsuario()); 
     }
-
     
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Usuario salvar( @RequestBody @Valid Usuario usuario ){
+    public UsuarioDTO salvar( @RequestBody @Valid Usuario usuario ){
         String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
         usuario.setSenha(senhaCriptografada);
-        return usuarioService.salvar(usuario);
+        return UsuarioDTO.converter(usuarioService.salvar(usuario));
     }
 
     @PostMapping("/auth")

@@ -2,9 +2,6 @@
 @contentType = application/json
 @token = Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9AZW1haWwuY29tIiwiZXhwIjoxNjY3MDY5NjM2fQ.emQ8RL5kIO_XpRNm79Vhq02Mql-fU9MqOH5ZObhTcjTyYZI5YPvgzXuQJ5sISGIvDMaL6xA4qL57B7cTGs5uDg
 
-
-
-
 GET {{baseUrl}}
 Authorization: {{token}}
 
