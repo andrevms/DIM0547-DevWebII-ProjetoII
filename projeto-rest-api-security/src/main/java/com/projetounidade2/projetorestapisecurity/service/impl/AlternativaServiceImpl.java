@@ -68,4 +68,13 @@ public class AlternativaServiceImpl implements AlternativaService {
         return alternativaRepository.recuperarPorQuestaoId(id);
     }
 
+    @Override
+    public Alternativa recuperarPorId(Integer id) {
+        var alternativa = alternativaRepository.findById(id);
+        if (!alternativa.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Alternativa não existe");
+        }
+        return alternativa.get();
+    }
+
 }
