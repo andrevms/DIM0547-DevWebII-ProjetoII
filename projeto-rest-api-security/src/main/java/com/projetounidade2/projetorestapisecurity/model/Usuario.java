@@ -43,7 +43,7 @@ public class Usuario implements UserDetails {
     @OneToMany(fetch = FetchType.LAZY)
     private List<ListaDeEstudos> listaDeEstudos;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany()
     private List<Perfil> perfis;
 
     @Override

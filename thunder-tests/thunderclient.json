@@ -64,5 +64,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "184230c0-d4ef-4ce9-9ec4-4499f731ee88",
+    "colId": "9bc76f16-ca4b-4892-9324-49dfdbcafa09",
+    "containerId": "",
+    "name": "criar",
+    "url": "http://localhost:8080/api/lista-de-estudos",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-11-03T18:37:43.776Z",
+    "modified": "2022-11-03T18:37:55.970Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

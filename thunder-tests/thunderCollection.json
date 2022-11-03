@@ -5,5 +5,12 @@
     "created": "2022-10-29T17:51:45.828Z",
     "sortNum": 10000,
     "folders": []
+  },
+  {
+    "_id": "9bc76f16-ca4b-4892-9324-49dfdbcafa09",
+    "colName": "lista-de-estudos",
+    "created": "2022-11-03T18:35:32.446Z",
+    "sortNum": 20000,
+    "folders": []
   }
 ]

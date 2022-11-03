@@ -13,7 +13,6 @@ import com.projetounidade2.projetorestapisecurity.exception.SenhaInvalidaExcepti
 import com.projetounidade2.projetorestapisecurity.model.Usuario;
 import com.projetounidade2.projetorestapisecurity.rest.form.LoginForm;
 import com.projetounidade2.projetorestapisecurity.rest.dto.TokenDTO;
-import com.projetounidade2.projetorestapisecurity.rest.dto.UsuarioDTO;
 import com.projetounidade2.projetorestapisecurity.security.JwtService;
 import com.projetounidade2.projetorestapisecurity.service.impl.UsuarioServiceImpl;
 
