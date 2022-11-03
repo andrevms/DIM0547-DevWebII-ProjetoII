@@ -1,12 +1,12 @@
 package com.projetounidade2.projetorestapisecurity.service.impl;
-/* 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.imd.projeto.web.estudaconcursos.model.Questao;
-import br.com.imd.projeto.web.estudaconcursos.repository.QuestaoRepository;
+import com.projetounidade2.projetorestapisecurity.model.Questao;
+import com.projetounidade2.projetorestapisecurity.repository.QuestaoRepository;
+import com.projetounidade2.projetorestapisecurity.service.QuestaoService;
 
 @Component
 public class QuestaoServiceImpl implements QuestaoService {
@@ -14,7 +14,7 @@ public class QuestaoServiceImpl implements QuestaoService {
     QuestaoRepository questaoRepository;
 
     @Override
-    public Questao saveQuestao(Questao questao) {
+    public Questao saveQuestao(Questao questao) { 
         return questaoRepository.save(questao);
     }
 
@@ -41,4 +41,3 @@ public class QuestaoServiceImpl implements QuestaoService {
         questaoRepository.save(cat);
     }
 }
-*/

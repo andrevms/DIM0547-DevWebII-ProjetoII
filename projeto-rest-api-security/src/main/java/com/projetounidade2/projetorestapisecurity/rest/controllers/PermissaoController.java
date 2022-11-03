@@ -20,41 +20,42 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.projetounidade2.projetorestapisecurity.model.Perfil;
-import com.projetounidade2.projetorestapisecurity.rest.dto.PerfilDTO;
-import com.projetounidade2.projetorestapisecurity.rest.form.PerfilForm;
-import com.projetounidade2.projetorestapisecurity.service.PerfilService;
+import com.projetounidade2.projetorestapisecurity.model.Permissao;
+import com.projetounidade2.projetorestapisecurity.rest.dto.PermissaoDTO;
+import com.projetounidade2.projetorestapisecurity.rest.form.PermissaoForm;
+import com.projetounidade2.projetorestapisecurity.service.PermissaoService;
 
 @RestController
-@RequestMapping("api/perfis")
-public class PerfilController {
+@RequestMapping("api/permissoes")
+public class PermissaoController {
 
     @Autowired
-    PerfilService perfilService;
+    PermissaoService permissaoService;
 
     @GetMapping
-    public List<PerfilDTO> find() {
-        List<Perfil> perfis = perfilService.getListPerfil();
-        return PerfilDTO.converter(perfis);
+    public List<PermissaoDTO> find() {
+        List<Permissao> permissoes = permissaoService.getListPermissao();
+        return PermissaoDTO.converter(permissoes);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<PerfilDTO> save(@RequestBody @Valid PerfilForm form, UriComponentsBuilder uriBuilder) {
-        Perfil perfil = form.converter();
-        perfilService.savePerfil(perfil);
+    public ResponseEntity<PermissaoDTO> save(@RequestBody @Valid PermissaoForm form, UriComponentsBuilder uriBuilder) {
+        Permissao permissao = form.converter();
+        permissaoService.savePermissao(permissao);
 
-        URI uri = uriBuilder.path("/perfis/{id}").buildAndExpand(perfil.getId()).toUri();
-        return ResponseEntity.created(uri).body(new PerfilDTO(perfil));
+        URI uri = uriBuilder.path("/permissoes/{id}").buildAndExpand(permissao.getId()).toUri();
+        return ResponseEntity.created(uri).body(new PermissaoDTO(permissao));
     }
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id, @RequestBody PerfilForm perfil) {
+    public void update(@PathVariable Long id, @RequestBody PermissaoForm form) {
         try {
-            perfilService.atualizarPerfil(id, perfil.getNome());
+            Permissao permissao = form.converter();
+            permissaoService.atualizarPermissao(id, permissao.getNome());
         } catch (Exception e) {
-           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Perfil não encontrado");
+           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Permissao não encontrada");
         }
     }
 
@@ -62,9 +63,9 @@ public class PerfilController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Long id) {
         try {
-            perfilService.removePerfil(id);
+            permissaoService.removePermissao(id);
         } catch (Exception e) {
-           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Perfil não encontrado");
+           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Permissao não encontrada");
         }
     }
 
