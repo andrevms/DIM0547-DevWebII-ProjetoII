@@ -21,9 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.projetounidade2.projetorestapisecurity.model.Alternativa;
+import com.projetounidade2.projetorestapisecurity.model.Categoria;
 import com.projetounidade2.projetorestapisecurity.model.Questao;
+import com.projetounidade2.projetorestapisecurity.rest.dto.AlternativaDto;
+import com.projetounidade2.projetorestapisecurity.rest.dto.CategoriaDTO;
 import com.projetounidade2.projetorestapisecurity.rest.dto.QuestaoDto;
+import com.projetounidade2.projetorestapisecurity.rest.dto.questao.QuestaoCompletaDTO;
 import com.projetounidade2.projetorestapisecurity.rest.form.QuestaoForm;
+import com.projetounidade2.projetorestapisecurity.service.AlternativaService;
+import com.projetounidade2.projetorestapisecurity.service.CategoriaService;
 import com.projetounidade2.projetorestapisecurity.service.QuestaoService;
 import lombok.*;
 
@@ -32,13 +39,44 @@ import lombok.*;
 @RequiredArgsConstructor
 public class QuestaoController {
     private final QuestaoService questaoService;
+    private final CategoriaService categoriaService;
+    private final AlternativaService alternativaService;
 
     @GetMapping
-    public ResponseEntity<List<QuestaoDto>> listarQuestoes() {
+    public ResponseEntity<List<QuestaoCompletaDTO>> listarQuestoes() {
         List<Questao> res = questaoService.getListQuestao();
-        var list = res.stream().map(a -> QuestaoDto.from(a)).toList();
+        var list = res.stream().map(a -> QuestaoCompletaDTO.from(a)).toList();
         return ResponseEntity.ok(list);
     }
+
+    @PutMapping("{id}/categoria")
+    public ResponseEntity<Questao> update(@PathVariable Integer id,
+                       @RequestBody CategoriaDTO categoria) {
+        try {
+            Categoria cat = categoriaService.getCategoriaByNome(categoria.getCategoria());
+            Questao q = questaoService.getQuestaoById(id);
+            q.setCategoria(cat);
+            questaoService.saveQuestao(q);
+            return ResponseEntity.ok(q);
+        } catch (Exception e) {
+           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoria não encontrada");
+        }
+    }
+
+    @PutMapping("{id}/resposta")
+    public ResponseEntity<Questao> update(@PathVariable Integer id,
+                       @RequestBody AlternativaDto alternativa) {
+        try {
+            Alternativa alt = alternativaService.recuperarPorId(alternativa.getId());
+            Questao q = questaoService.getQuestaoById(id);
+            q.setResposta(alt);
+            questaoService.saveQuestao(q);
+            return ResponseEntity.ok(q);
+        } catch (Exception e) {
+           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alternativa não encontrada");
+        }
+    }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
