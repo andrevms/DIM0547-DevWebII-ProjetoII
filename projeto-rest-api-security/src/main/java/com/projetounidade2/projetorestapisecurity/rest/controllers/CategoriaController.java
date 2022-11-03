@@ -1,6 +1,7 @@
 package com.projetounidade2.projetorestapisecurity.rest.controllers;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -22,6 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.projetounidade2.projetorestapisecurity.model.Categoria;
 import com.projetounidade2.projetorestapisecurity.rest.dto.CategoriaDTO;
+import com.projetounidade2.projetorestapisecurity.rest.dto.categoria.CategoriaCompletaDTO;
 import com.projetounidade2.projetorestapisecurity.rest.form.CategoriaForm;
 import com.projetounidade2.projetorestapisecurity.service.CategoriaService;
 
@@ -33,8 +35,12 @@ public class CategoriaController {
     CategoriaService categoriaService;
 
     @GetMapping
-    public List<Categoria> find() {
-        return categoriaService.getListCategoria();
+    public List<CategoriaCompletaDTO> find() {
+        List<CategoriaCompletaDTO> a = new ArrayList<CategoriaCompletaDTO>();
+        for (Categoria cat : categoriaService.getListCategoria()) {
+            a.add(new CategoriaCompletaDTO(cat));
+        }
+        return a;
     }
 
     @PostMapping
