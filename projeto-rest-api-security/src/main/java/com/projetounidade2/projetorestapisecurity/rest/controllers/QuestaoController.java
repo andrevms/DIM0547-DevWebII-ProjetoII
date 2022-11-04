@@ -1,6 +1,7 @@
 package com.projetounidade2.projetorestapisecurity.rest.controllers;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.net.URI;
 
 import javax.validation.Valid;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.projetounidade2.projetorestapisecurity.exception.RegraNegocioException;
 import com.projetounidade2.projetorestapisecurity.model.Alternativa;
 import com.projetounidade2.projetorestapisecurity.model.Categoria;
 import com.projetounidade2.projetorestapisecurity.model.Questao;
@@ -55,11 +57,18 @@ public class QuestaoController {
         try {
             Categoria cat = categoriaService.getCategoriaByNome(categoria.getCategoria());
             Questao q = questaoService.getQuestaoById(id);
+            
+            if(cat == null){
+                throw new RegraNegocioException("Alternativa nao encontrada");
+            }
+            if( q == null) {
+                throw new RegraNegocioException("Questao nao encontrada");
+            }
             q.setCategoria(cat);
             questaoService.saveQuestao(q);
             return ResponseEntity.ok(q);
         } catch (Exception e) {
-           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoria não encontrada");
+           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nao encontrado");
         }
     }
 
@@ -77,6 +86,27 @@ public class QuestaoController {
         }
     }
 
+    @PutMapping("{id}/alternativa")
+    public ResponseEntity<Questao> updateAlternativas(@PathVariable Integer id,
+                       @RequestBody AlternativaDto alternativa) {
+        try {
+            Alternativa alt = alternativaService.recuperarPorId(alternativa.getId());
+            Questao q = questaoService.getQuestaoById(id);
+
+            List<Alternativa> list = q.getAlternativas();
+            if (list.add(alt)){
+                q.setAlternativas(list);
+                questaoService.saveQuestao(q);
+                return ResponseEntity.ok(q);
+            }else {
+                throw new RegraNegocioException("List não atualizada");
+            }
+
+        } catch (Exception e) {
+           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alternativa não encontrada");
+        }
+    }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -87,5 +117,14 @@ public class QuestaoController {
         URI uri = uriBuilder.path("/questoes/{id}").buildAndExpand(questao.getId()).toUri();
         return ResponseEntity.created(uri).body(new QuestaoDto(questao));
     }
-    
+
+    @DeleteMapping("{id}")
+    public void remover(@PathVariable("id") String id) {
+        try{
+            questaoService.removeQuestao(id);
+        }catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Questao não encontrada");
+        }
+
+    }
 }

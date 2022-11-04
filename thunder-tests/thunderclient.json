@@ -8,17 +8,17 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-10-29T17:51:56.810Z",
-    "modified": "2022-11-03T18:32:49.961Z",
+    "modified": "2022-11-04T12:55:09.008Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"questaoId\": 1,\n  \"alternativa\": \"O valor é iguas 20\"\n}",
+      "raw": "{\n  \"questaoId\": 3,\n  \"alternativa\": \"O vfasdfga\"\n}",
       "form": []
     },
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1MTE1MTV9.atE-p6_m3GsqaHSym-SueONOLS2Y-MCqSAGc2tkj1Rm5s74ybnAzqKM587gIxNwXRflFhT0kN1ArJAUmTZs5PQ"
+      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1ODM5NzV9.frogIumG52xiXo3TW5B4VuwRHzzd4F5lGR7urVSzqsE4zqsR-pz7KduRrzljLUHOSyFsHYwoXZAAEKH45WC2_w"
     },
     "tests": []
   },
@@ -27,16 +27,16 @@
     "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
     "containerId": "54e389fa-9ffb-4034-89e4-19f60258922a",
     "name": "listar_por_questao_id",
-    "url": "http://localhost:8080/api/alternativa/questao/1",
+    "url": "http://localhost:8080/api/alternativa/questao/3",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-10-30T01:15:32.162Z",
-    "modified": "2022-11-03T16:39:24.419Z",
+    "modified": "2022-11-04T12:54:06.275Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1MTE1MTV9.atE-p6_m3GsqaHSym-SueONOLS2Y-MCqSAGc2tkj1Rm5s74ybnAzqKM587gIxNwXRflFhT0kN1ArJAUmTZs5PQ"
+      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1ODM5NzV9.frogIumG52xiXo3TW5B4VuwRHzzd4F5lGR7urVSzqsE4zqsR-pz7KduRrzljLUHOSyFsHYwoXZAAEKH45WC2_w"
     },
     "tests": []
   },
@@ -64,13 +64,17 @@
     "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
     "containerId": "54e389fa-9ffb-4034-89e4-19f60258922a",
     "name": "remover",
-    "url": "http://localhost:8080/api/alternativa/1",
+    "url": "http://localhost:8080/api/alternativa/4",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2022-10-31T20:58:20.162Z",
-    "modified": "2022-11-02T01:59:32.773Z",
+    "modified": "2022-11-04T13:07:23.936Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1ODM5NzV9.frogIumG52xiXo3TW5B4VuwRHzzd4F5lGR7urVSzqsE4zqsR-pz7KduRrzljLUHOSyFsHYwoXZAAEKH45WC2_w"
+    },
     "tests": []
   },
   {
@@ -311,12 +315,12 @@
     "method": "GET",
     "sortNum": 200000,
     "created": "2022-11-02T17:28:34.892Z",
-    "modified": "2022-11-03T17:55:51.911Z",
+    "modified": "2022-11-04T12:46:23.169Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1MTYxNDF9.-_s_-e0b0ZI-kNDGhsBce5Zb-NWAEDNIU_jjFGOKKIt8gA8YmxLT-CttMuo2wx0LAbQJKMHGtdIKgomu9ZnsRw"
+      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1ODM5NzV9.frogIumG52xiXo3TW5B4VuwRHzzd4F5lGR7urVSzqsE4zqsR-pz7KduRrzljLUHOSyFsHYwoXZAAEKH45WC2_w"
     },
     "tests": []
   },
@@ -348,21 +352,21 @@
     "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
     "containerId": "e73a222f-0b99-4bef-9f0d-02371602202f",
     "name": "Put Categoria",
-    "url": "/questoes/1/categoria",
+    "url": "/questoes/3/categoria",
     "method": "PUT",
     "sortNum": 220000,
     "created": "2022-11-03T16:40:42.004Z",
-    "modified": "2022-11-03T17:04:10.478Z",
+    "modified": "2022-11-04T13:04:50.774Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n   \"categoria\": \"catbasico\"\n}",
+      "raw": "{\n   \"categoria\": \"cat21\"\n}",
       "form": []
     },
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1MTE1MTV9.atE-p6_m3GsqaHSym-SueONOLS2Y-MCqSAGc2tkj1Rm5s74ybnAzqKM587gIxNwXRflFhT0kN1ArJAUmTZs5PQ"
+      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1ODM5NzV9.frogIumG52xiXo3TW5B4VuwRHzzd4F5lGR7urVSzqsE4zqsR-pz7KduRrzljLUHOSyFsHYwoXZAAEKH45WC2_w"
     },
     "tests": []
   },
@@ -371,11 +375,11 @@
     "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
     "containerId": "e73a222f-0b99-4bef-9f0d-02371602202f",
     "name": "Put Resposta",
-    "url": "/questoes/1/resposta",
+    "url": "/questoes/2/resposta",
     "method": "PUT",
     "sortNum": 230000,
     "created": "2022-11-03T17:28:05.076Z",
-    "modified": "2022-11-03T18:35:58.105Z",
+    "modified": "2022-11-03T19:35:16.051Z",
     "headers": [],
     "params": [],
     "body": {
@@ -386,6 +390,47 @@
     "auth": {
       "type": "bearer",
       "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1MTM1NTR9.54LccJ836cThruaX2pUkOoqa98YGoD-o4tPCTKO9c0kz5qj-3KvG0vC0QOgJrPIH-c_ezY_w6k8mIL-SgND-Sw"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e239cb1b-08d1-465f-97db-b03a82d56b95",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "e73a222f-0b99-4bef-9f0d-02371602202f",
+    "name": "Delete",
+    "url": "/questoes/2",
+    "method": "DELETE",
+    "sortNum": 240000,
+    "created": "2022-11-03T19:16:09.579Z",
+    "modified": "2022-11-03T19:47:24.818Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1MTkxMDJ9.N0_ffD8ua9V4o83TEonvofKe6lkU-D9WI6jW9i6GvbQjjtcSrWKQSd9MlXT1FT1lElH4L3Lyd1JPNosjtnLzKw"
+    },
+    "tests": []
+  },
+  {
+    "_id": "001e5430-a516-48d4-b209-5f27d1d49dcd",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "e73a222f-0b99-4bef-9f0d-02371602202f",
+    "name": "Put Alternativas",
+    "url": "/questoes/3/alternativa",
+    "method": "PUT",
+    "sortNum": 235000,
+    "created": "2022-11-04T12:54:52.987Z",
+    "modified": "2022-11-04T13:05:39.235Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\" : 4\n} ",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc1ODM5NzV9.frogIumG52xiXo3TW5B4VuwRHzzd4F5lGR7urVSzqsE4zqsR-pz7KduRrzljLUHOSyFsHYwoXZAAEKH45WC2_w"
     },
     "tests": []
   }
