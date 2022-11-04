@@ -13,6 +13,6 @@ public interface AlternativaService {
     public void remover(int id);
     public Alternativa atualizar(int id, String alt);
     public List<Alternativa> listarPorQuestaoId(int id);
-    // public Alternativa recuperarPorId(Integer id);
+    public Alternativa recuperarPorId(Integer id);
     // public List<Alternativa> getListAlternativa();
 }

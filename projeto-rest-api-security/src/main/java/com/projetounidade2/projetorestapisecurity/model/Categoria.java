@@ -2,6 +2,9 @@ package com.projetounidade2.projetorestapisecurity.model;
 import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 @Getter
@@ -21,6 +24,7 @@ public class Categoria {
     @Column(unique = true)
     private String categoria;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
     private List<Questao> questoes;
 
