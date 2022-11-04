@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.projetounidade2.projetorestapisecurity.model.ListaDeEstudos;
+import com.projetounidade2.projetorestapisecurity.model.Usuario;
 import com.projetounidade2.projetorestapisecurity.repository.ListaDeEstudosRepository;
 import com.projetounidade2.projetorestapisecurity.repository.QuestaoRepository;
 import com.projetounidade2.projetorestapisecurity.repository.UsuarioRepository;
@@ -48,7 +50,7 @@ public class ListaDeEstudosServiceImpl implements ListaDeEstudosService {
 
     @Override
     public List<ListaDeEstudos> listar() {
-        var usuarioId = 1; // TODO: recuperação de usuário da sessão
+        var usuarioId = this._recuperarUsuario().getId();
         return listaDeEstudosRepository.listar(usuarioId);
     }
 
@@ -75,16 +77,10 @@ public class ListaDeEstudosServiceImpl implements ListaDeEstudosService {
 
     @Override
     public ListaDeEstudos criar(CriarListaDeEstudosDto params) {
-        var usuarioId = 1; // TODO: recuperação de usuário da sessão
-        var usuario = usuarioRepository.findById(usuarioId);
-
-        if (!usuario.isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário não existe");
-        }
-
+        var usuario = this._recuperarUsuario();
         var lista = new ListaDeEstudos();
         lista.setNome(params.getNome());
-        lista.setUsuario(usuario.get());
+        lista.setUsuario(usuario);
         return listaDeEstudosRepository.save(lista);
     }
 
@@ -107,5 +103,15 @@ public class ListaDeEstudosServiceImpl implements ListaDeEstudosService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Lista de Estudos não existe");
         }
         return listaOpcional.get();
+    }
+
+    private Usuario _recuperarUsuario() {
+        var email = SecurityContextHolder.getContext().getAuthentication().getName();
+        var usuario = usuarioRepository.findByEmail(email);
+
+        if (!usuario.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário não está logado?");
+        }
+        return usuario.get(); 
     }
 }
