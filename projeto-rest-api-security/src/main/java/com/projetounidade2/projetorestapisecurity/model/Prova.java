@@ -22,7 +22,7 @@ public class Prova {
     @Column(name = "prova_nome")
     private String provaNome;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "questoes_provas", joinColumns = @JoinColumn(name = "prova_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "questao_id", referencedColumnName = "id"))
     private List<Questao> questoes;
 }

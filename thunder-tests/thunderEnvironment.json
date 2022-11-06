@@ -5,11 +5,11 @@
     "default": true,
     "sortNum": 10000,
     "created": "2022-11-02T01:56:28.541Z",
-    "modified": "2022-11-04T19:42:49.285Z",
+    "modified": "2022-11-06T17:53:56.668Z",
     "data": [
       {
         "name": "tokenadmin",
-        "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc2MDc3MTZ9.t6bsfyalXGe-stdsP3xGoyzixwOLnVOb26v_Z5OROd1Vamj4dTmc0mYfZLL1Xzz6bbEzJODQCtua38J1orWnOg"
+        "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc3NzUyMjB9.XbYIiGYB4qtEvs52dGP7Vp9VcK95Yybhe0ngn4KzhH9XaRCUBmLlLYlbHccJp-vva4otGgHKsLSTPESIkYNDHg"
       },
       {
         "name": "host",

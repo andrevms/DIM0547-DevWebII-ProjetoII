@@ -6,17 +6,18 @@ import org.springframework.stereotype.Service;
 
 import com.projetounidade2.projetorestapisecurity.model.Prova;
 
-
 @Service
 public interface ProvaService {
 
-    public Prova saveProva(Prova prova);
+    public Prova criar(String nomeProva);
 
-    public void atualizarProva(int id, String prova);
+    public Prova atualizar(int id, String prova);
 
-    public void removeProvaById(int id);
+    public void remover(int id);
 
-    public Prova getProvaById(Integer id);
+    public List<Prova> listar();
 
-    public List<Prova> getListProva();
+    public Prova recuperarPorId(int id);
+    
+    public void adicionarQuestao(int provaId, int questaoId);
 }

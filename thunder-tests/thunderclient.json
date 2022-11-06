@@ -295,12 +295,12 @@
     "method": "GET",
     "sortNum": 200000,
     "created": "2022-11-02T17:28:34.892Z",
-    "modified": "2022-11-02T17:59:26.394Z",
+    "modified": "2022-11-06T19:08:12.179Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc0Mjk4ODB9.o1GCL8_L5mHa3oIaS9b0UTozKBxBNyirfWS5X2tjNRv6Th-qR1jGP1J3dpMBbiOehWXrVvj1KCJ3loNTq8PAIA"
+      "bearer": "{{tokenadmin}}"
     },
     "tests": []
   },
@@ -313,7 +313,7 @@
     "method": "POST",
     "sortNum": 210000,
     "created": "2022-11-02T18:15:02.147Z",
-    "modified": "2022-11-02T18:16:57.239Z",
+    "modified": "2022-11-06T19:08:39.286Z",
     "headers": [],
     "params": [],
     "body": {
@@ -323,7 +323,7 @@
     },
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc0Mjk4ODB9.o1GCL8_L5mHa3oIaS9b0UTozKBxBNyirfWS5X2tjNRv6Th-qR1jGP1J3dpMBbiOehWXrVvj1KCJ3loNTq8PAIA"
+      "bearer": "{{tokenadmin}}"
     },
     "tests": []
   },
@@ -435,6 +435,129 @@
     "modified": "2022-11-04T19:57:44.546Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{tokenadmin}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "37a80426-be56-4897-aece-45cfbe9c4642",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "45b66261-06b7-471e-8b96-2df1b8d909cb",
+    "name": "criar",
+    "url": "{{host}}/api/prova",
+    "method": "POST",
+    "sortNum": 280000,
+    "created": "2022-11-06T17:48:01.884Z",
+    "modified": "2022-11-06T18:06:23.479Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"nome\": \"Prova 1\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{tokenadmin}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "a966fd50-8a78-42a7-9c85-220194e4b873",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "45b66261-06b7-471e-8b96-2df1b8d909cb",
+    "name": "listar",
+    "url": "{{host}}/api/prova",
+    "method": "GET",
+    "sortNum": 290000,
+    "created": "2022-11-06T18:31:06.780Z",
+    "modified": "2022-11-06T18:31:22.102Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{tokenadmin}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "b7ed01a8-61ee-4c02-8130-94e2887a70fb",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "45b66261-06b7-471e-8b96-2df1b8d909cb",
+    "name": "recuperar-por-id",
+    "url": "{{host}}/api/prova/2",
+    "method": "GET",
+    "sortNum": 300000,
+    "created": "2022-11-06T18:34:40.408Z",
+    "modified": "2022-11-06T19:10:00.263Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{tokenadmin}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "cd51e061-8ae1-4804-a557-fdcc9405bcd2",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "45b66261-06b7-471e-8b96-2df1b8d909cb",
+    "name": "remover",
+    "url": "{{host}}/api/prova/1",
+    "method": "DELETE",
+    "sortNum": 310000,
+    "created": "2022-11-06T18:44:33.003Z",
+    "modified": "2022-11-06T18:45:43.430Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{tokenadmin}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "034378e4-d25f-4b75-9b69-240de5a9e57f",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "45b66261-06b7-471e-8b96-2df1b8d909cb",
+    "name": "atualizar",
+    "url": "{{host}}/api/prova",
+    "method": "PATCH",
+    "sortNum": 285000,
+    "created": "2022-11-06T18:58:47.489Z",
+    "modified": "2022-11-06T18:59:25.629Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": 2,\n  \"nome\": \"Prova 3\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{tokenadmin}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "89ca37be-6b4a-4de1-b747-6aa7526ea445",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "45b66261-06b7-471e-8b96-2df1b8d909cb",
+    "name": "adicionar-questao",
+    "url": "{{host}}/api/prova/2/questao",
+    "method": "POST",
+    "sortNum": 320000,
+    "created": "2022-11-06T19:09:00.174Z",
+    "modified": "2022-11-06T19:09:34.904Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"questaoId\": 1\n}",
+      "form": []
+    },
     "auth": {
       "type": "bearer",
       "bearer": "{{tokenadmin}}"
