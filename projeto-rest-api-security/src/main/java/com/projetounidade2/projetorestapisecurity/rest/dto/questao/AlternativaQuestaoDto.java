@@ -4,8 +4,6 @@ package com.projetounidade2.projetorestapisecurity.rest.dto.questao;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.mapping.Set;
-
 import com.projetounidade2.projetorestapisecurity.model.Alternativa;
 
 import lombok.*;

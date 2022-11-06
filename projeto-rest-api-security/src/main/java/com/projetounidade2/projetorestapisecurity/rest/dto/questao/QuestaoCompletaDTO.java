@@ -1,11 +1,7 @@
 package com.projetounidade2.projetorestapisecurity.rest.dto.questao;
 import java.util.List;
 
-import com.projetounidade2.projetorestapisecurity.model.Alternativa;
-import com.projetounidade2.projetorestapisecurity.model.Categoria;
 import com.projetounidade2.projetorestapisecurity.model.Questao;
-import com.projetounidade2.projetorestapisecurity.rest.dto.AlternativaDto;
-import com.projetounidade2.projetorestapisecurity.rest.dto.CategoriaDTO;
 
 import lombok.*;
 
