@@ -8,6 +8,25 @@
 		<version>2.7.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<profiles>
+		<profile>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+				<id>dev</id>
+				<properties>
+					<project.packaging>jar</project.packaging>
+					<tomcat.scope>compile</tomcat.scope>
+				</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<project.packaging>war</project.packaging>
+				<tomcat.scope>provided</tomcat.scope>
+			</properties>
+		</profile>
+	</profiles>
 	<groupId>com.projetounidade2</groupId>
 	<artifactId>projeto-rest-api-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
