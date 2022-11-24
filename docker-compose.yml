@@ -4,9 +4,9 @@ services:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
-      MYSQL_USER: ${DATABASE_USERNAME}
-      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${PROD_DATABASE_PASSWORD}
+      MYSQL_USER: ${PROD_DATABASE_USERNAME}
+      MYSQL_PASSWORD: ${PROD_DATABASE_PASSWORD}
       SERVICE_NAME: mysql
     ports:
       - "${LOCAL_DATABASE_PORT}:3306"
@@ -22,16 +22,18 @@ services:
       context: projeto-rest-api-security/
       dockerfile: Dockerfile
     environment:
-      SPRING_PROFILES_ACTIVE: ${APP_ENV}
-      DATABASE_URL: jdbc:mysql://db:3306/projetoweb_${APP_ENV}?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      JWT_SECRET: ${JWT_SECRET}
+      APP_ENV: ${APP_ENV}
+      LOCAL_DATABASE_URL: db
+      LOCAL_DATABASE_PORT: 3306
+      PROD_DATABASE_USERNAME: ${PROD_DATABASE_USERNAME}
+      PROD_DATABASE_PASSWORD: ${PROD_DATABASE_PASSWORD}
+      PROD_JWT_SECRET: ${PROD_JWT_SECRET}
     ports:
       - "${LOCAL_BACKEND_PORT}:8080"
     networks:
       net:
         ipv4_address: 10.5.0.3
+    restart: on-failure:5
     depends_on:
       - db
 
