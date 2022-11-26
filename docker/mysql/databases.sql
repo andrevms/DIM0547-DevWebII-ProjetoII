@@ -10,6 +10,7 @@ GRANT ALL PRIVILEGES ON projetoweb_dev.* TO 'myuserdev'@'%';
 CREATE USER 'myuserhomol'@'%' IDENTIFIED BY 'myuserhomol';
 GRANT ALL PRIVILEGES ON projetoweb_homol.* TO 'myuserhomol'@'%';
 
+CREATE USER 'myuserprod'@'%' IDENTIFIED BY 'myuserprod';
 GRANT ALL PRIVILEGES ON projetoweb_prod.* TO 'myuserprod'@'%';
 
 SHOW DATABASES;
