@@ -23,6 +23,7 @@ services:
       APP_ENV: ${APP_ENV}
       LOCAL_DATABASE_URL: db
       LOCAL_DATABASE_PORT: 3306
+      LOCAL_API_PORT: ${LOCAL_API_PORT}
     ports:
       - "${LOCAL_API_PORT}:8080"
     networks:
