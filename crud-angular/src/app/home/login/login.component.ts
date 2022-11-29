@@ -21,7 +21,7 @@ export class LoginComponent {
     this.authService.autenticar(this.email, this.senha).subscribe(
       () => {
         this.loginValido = true;
-        this.router.navigate(['provas']);
+        this.router.navigate(['permissoes']);
       },
       (error) => {
         this.loginValido = false;
