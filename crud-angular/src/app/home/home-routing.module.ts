@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
+import { SessaoAtivaGuard } from './sessao-ativa.guard';
 
 const routes: Routes = [
   {
@@ -10,12 +11,14 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: '',
+        path: 'autenticacao/entrar',
         component: LoginComponent,
+        canActivate: [SessaoAtivaGuard]
       },
       {
-        path: 'cadastro',
+        path: 'autenticacao/cadastro',
         component: CadastroComponent,
+        canActivate: [SessaoAtivaGuard]
       },
     ],
   },

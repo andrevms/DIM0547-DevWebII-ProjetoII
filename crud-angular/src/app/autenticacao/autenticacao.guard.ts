@@ -2,28 +2,33 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  CanLoad,
+  Route,
   Router,
   RouterStateSnapshot,
-  UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
-import { UsuarioService } from './usuario/usuario.service';
+import { SessaoUsuarioService } from './sessao-usuario.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AutenticacaoGuard implements CanActivate {
-  constructor(private usuarioService: UsuarioService, private router: Router) {}
+export class AutenticacaoGuard implements CanActivate, CanLoad {
+  constructor(
+    private _sessaoUsuarioService: SessaoUsuarioService,
+    private router: Router
+  ) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    if (!this.usuarioService.estaLogado()) {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (!this._sessaoUsuarioService.estaLogado()) {
+      this.router.navigate(['']);
+      return false;
+    }
+
+    return true;
+  }
+
+  canLoad(route: Route) {
+    if (!this._sessaoUsuarioService.estaLogado()) {
       this.router.navigate(['']);
       return false;
     }

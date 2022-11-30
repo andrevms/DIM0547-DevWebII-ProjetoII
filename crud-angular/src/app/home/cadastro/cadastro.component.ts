@@ -33,7 +33,7 @@ export class CadastroComponent {
         this.cadastroForm.getRawValue() as NovoUsuario;
       this.cadastroService.cadastrarNovoUsuario(usuario).subscribe(
         () => {
-          this.router.navigate(['']);
+          this.router.navigate(['autenticacao/entrar']);
         },
         (error) => {
           console.log(error);

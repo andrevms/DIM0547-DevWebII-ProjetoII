@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UsuarioService } from 'src/app/autenticacao/usuario/usuario.service';
 import { Permissoes } from '../permissoes';
 import { PermissoesService } from '../permissoes.service';
 

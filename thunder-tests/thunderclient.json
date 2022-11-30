@@ -152,12 +152,12 @@
     "method": "POST",
     "sortNum": 100000,
     "created": "2022-11-02T02:17:40.915Z",
-    "modified": "2022-11-28T14:05:38.786Z",
+    "modified": "2022-11-29T22:51:19.668Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"email\": \"fulanoadmin@email.com\",\n    \"senha\": \"1253\"\n}",
+      "raw": "{\n    \"email\": \"fulanoadmin@email.com\",\n    \"senha\": \"123\"\n}",
       "form": []
     },
     "tests": []
@@ -301,9 +301,13 @@
     "method": "GET",
     "sortNum": 180000,
     "created": "2022-11-02T06:06:49.510Z",
-    "modified": "2022-11-02T06:07:05.422Z",
+    "modified": "2022-11-29T22:52:06.085Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njk3ODAyNzl9.gyZMH9yNxp9WUEEfRy9Ob2zmyxSR4QdvU_6PdNw1-yK49-Q4-xr6eO82Vd6RrBGs-Jm1sLFnDgEgiD_qIwOsKQ"
+    },
     "tests": []
   },
   {
