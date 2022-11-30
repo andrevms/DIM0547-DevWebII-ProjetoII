@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="cadastrar()">
+<form [formGroup]="form" (ngSubmit)="atualizar()">
   <div class="row">
     <div class="col">
       <mat-form-field style="width: 400px">
@@ -16,7 +16,7 @@
         color="primary"
         [disabled]="!form.valid"
       >
-        Cadastrar
+        Atualizar
       </button>
     </div>
   </div>

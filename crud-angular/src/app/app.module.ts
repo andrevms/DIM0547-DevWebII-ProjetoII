@@ -24,7 +24,10 @@ function verificacaoDeSessaoAtiva(
         autenticacaoService
           .recuperarInfo()
           .pipe(tap((sessao) => sessaoUsuarioService.atualizarSessao(sessao)))
-          .subscribe(() => resolve());
+          .subscribe({
+            next: () => resolve(),
+            error: () => resolve()
+          });
       } else {
         resolve();
       }
