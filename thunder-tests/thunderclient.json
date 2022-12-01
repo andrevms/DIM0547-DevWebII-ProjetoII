@@ -222,7 +222,7 @@
     "method": "POST",
     "sortNum": 140000,
     "created": "2022-11-02T02:25:28.090Z",
-    "modified": "2022-11-06T16:12:39.711Z",
+    "modified": "2022-12-01T11:31:20.729Z",
     "headers": [],
     "params": [],
     "body": {
@@ -232,7 +232,7 @@
     },
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc3NjkwNTV9.s6JKnq40wnjgYmJQojsEok1W3rzRRmDcVaKzDBXecfOZm80AE_qZknKgf4l-7liL3NZ0GZbfqJo2Fu_kymHPMA"
+      "bearer": "{{tokenadmin}}"
     },
     "tests": []
   },
@@ -1198,6 +1198,24 @@
     "auth": {
       "type": "bearer",
       "bearer": "{{tokenadmin}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e7d9abc1-f4cf-4cc7-acdb-780cf4656bb4",
+    "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
+    "containerId": "8639da33-a9b1-4abb-b61d-62f40a533af0",
+    "name": "getById",
+    "url": "/categorias/1",
+    "method": "GET",
+    "sortNum": 135000,
+    "created": "2022-12-01T12:47:19.631Z",
+    "modified": "2022-12-01T12:47:32.327Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc3NjkwNTV9.s6JKnq40wnjgYmJQojsEok1W3rzRRmDcVaKzDBXecfOZm80AE_qZknKgf4l-7liL3NZ0GZbfqJo2Fu_kymHPMA"
     },
     "tests": []
   }
