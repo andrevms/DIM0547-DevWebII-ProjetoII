@@ -17,6 +17,11 @@ const routes: Routes = [
     path: 'editar/:id',
     component: EditarComponent,
   },
+  {
+    path: ':id/questao',
+    loadChildren: () =>
+      import('./questao/questao.module').then((m) => m.QuestaoModule),
+  },
 ];
 
 @NgModule({
