@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AutenticacaoGuard } from './autenticacao/autenticacao.guard';
 import { ListaPermissoesComponent } from './permissoes/lista-permissoes/lista-permissoes.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -22,7 +23,7 @@ const routes: Routes = [
     path: 'permissoes',
     component: ListaPermissoesComponent,
     canLoad: [AutenticacaoGuard],
-  }
+  },
 ];
 
 @NgModule({
