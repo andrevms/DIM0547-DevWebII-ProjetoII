@@ -1,7 +1,7 @@
 <div class="row mat-typography">
   <div class="col">
     <h1>Gerenciar Questões</h1>
-    <h2>Prova tchan tchan tchan</h2>
+    <h2>Prova: {{ prova?.nome }}</h2>
   </div>
 </div>
 
@@ -30,9 +30,6 @@
         <button mat-button>Excluir</button>
         <a mat-button class="me-2" [routerLink]="['editar', element.id]"
           >Editar</a
-        >
-        <a mat-button class="me-2" [routerLink]="[element.id, 'questao']"
-          >Questões</a
         >
       </div>
     </td>
