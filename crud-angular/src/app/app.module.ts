@@ -12,9 +12,9 @@ import { AutenticacaoService } from './autenticacao/autenticacao.service';
 import { SessaoUsuarioService } from './autenticacao/sessao-usuario.service';
 import { TokenService } from './autenticacao/token.service';
 import { ListaPermissoesComponent } from './permissoes/lista-permissoes/lista-permissoes.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 function verificacaoDeSessaoAtiva(
   sessaoUsuarioService: SessaoUsuarioService,
@@ -29,7 +29,7 @@ function verificacaoDeSessaoAtiva(
           .pipe(tap((sessao) => sessaoUsuarioService.atualizarSessao(sessao)))
           .subscribe({
             next: () => resolve(),
-            error: () => resolve()
+            error: () => resolve(),
           });
       } else {
         resolve();
@@ -48,7 +48,8 @@ function verificacaoDeSessaoAtiva(
     HttpClientModule,
     AutenticacaoModule,
     MatButtonModule,
-    MatIconModule
+    MatMenuModule,
+    MatIconModule,
   ],
   providers: [
     {

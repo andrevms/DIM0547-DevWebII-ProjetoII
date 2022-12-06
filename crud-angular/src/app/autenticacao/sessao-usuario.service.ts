@@ -8,6 +8,8 @@ import { TokenService } from './token.service';
 export class SessaoUsuarioService {
   private _sessao: IUsuarioAutenticadoInfoResponseDto | undefined;
 
+  constructor(private _tokenService: TokenService) {}
+
   atualizarSessao(sessao: IUsuarioAutenticadoInfoResponseDto) {
     this._sessao = sessao;
   }
@@ -21,6 +23,7 @@ export class SessaoUsuarioService {
   }
 
   destruirSessao() {
+    this._tokenService.excluirToken();
     this._sessao = undefined;
   }
 }
