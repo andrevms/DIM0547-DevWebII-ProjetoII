@@ -28,6 +28,15 @@ export class ProvaHttpService {
     });
   }
 
+  adicionarQuestao(provaId: number, questaoId: number) {
+    return this._http.post<void>(
+      `${environment.apiURL}/prova/${provaId}/questao`,
+      {
+        questaoId,
+      }
+    );
+  }
+
   atualizar(params: IAtualizarProvaParams) {
     return this._http.patch<void>(`${environment.apiURL}/prova`, params);
   }

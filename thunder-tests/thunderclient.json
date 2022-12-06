@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-10-29T17:51:56.810Z",
-    "modified": "2022-11-06T16:16:33.920Z",
+    "modified": "2022-12-05T17:10:33.963Z",
     "headers": [],
     "params": [],
     "body": {
@@ -18,7 +18,7 @@
     },
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc3NjkwNTV9.s6JKnq40wnjgYmJQojsEok1W3rzRRmDcVaKzDBXecfOZm80AE_qZknKgf4l-7liL3NZ0GZbfqJo2Fu_kymHPMA"
+      "bearer": "{{tokenadmin}}"
     },
     "tests": []
   },
@@ -27,16 +27,16 @@
     "colId": "446679f3-08cc-4b88-976c-58c149dc40c0",
     "containerId": "54e389fa-9ffb-4034-89e4-19f60258922a",
     "name": "listar_por_questao_id",
-    "url": "http://localhost:8080/api/alternativa/questao/1",
+    "url": "http://localhost:8080/api/alternativa/questao/7",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-10-30T01:15:32.162Z",
-    "modified": "2022-11-06T16:16:20.889Z",
+    "modified": "2022-12-05T16:49:44.827Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc3NjkwNTV9.s6JKnq40wnjgYmJQojsEok1W3rzRRmDcVaKzDBXecfOZm80AE_qZknKgf4l-7liL3NZ0GZbfqJo2Fu_kymHPMA"
+      "bearer": "{{tokenadmin}}"
     },
     "tests": []
   },
@@ -49,13 +49,17 @@
     "method": "PATCH",
     "sortNum": 30000,
     "created": "2022-10-31T20:27:26.022Z",
-    "modified": "2022-11-02T01:59:31.501Z",
+    "modified": "2022-12-06T13:33:30.230Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"alternativa\": \"change alterantiva\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{tokenadmin}}"
     },
     "tests": []
   },
