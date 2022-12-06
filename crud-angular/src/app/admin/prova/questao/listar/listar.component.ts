@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { map, tap } from 'rxjs';
 import { QuestaoHttpService } from 'src/app/common/http/questao-http.service';
@@ -20,7 +21,8 @@ export class QuestaoListarComponent implements OnInit {
   constructor(
     private _questaoHttpService: QuestaoHttpService,
     private _provaHttpService: ProvaHttpService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -32,6 +34,17 @@ export class QuestaoListarComponent implements OnInit {
       .subscribe(() => {
         this._carregarQuestoes();
       });
+  }
+
+  excluir(id: number) {
+    this._questaoHttpService.remover(id).subscribe({
+      next: () => {
+        this._carregarQuestoes();
+        this._snackBar.open('Questão removida com sucesso', 'Fechar', {
+          duration: 3500,
+        });
+      }
+    })
   }
 
   private _carregarQuestoes() {

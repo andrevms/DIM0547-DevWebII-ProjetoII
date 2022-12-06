@@ -14,7 +14,7 @@ const routes: Routes = [
     component: CadastrarQuestaoComponent,
   },
   {
-    path: 'editar/:id',
+    path: 'editar/:questao_id',
     component: EditarQuestaoComponent
   }
 ];

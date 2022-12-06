@@ -14,10 +14,33 @@ export class QuestaoHttpService {
     );
   }
 
+  recuperarPorId(id: number) {
+    return this._http.get<IRecuperarQuestaoResponse>(
+      `${environment.apiURL}/questoes/${id}`
+    );
+  }
+
   criar(enunciado: string) {
     return this._http.post<IQuestao>(`${environment.apiURL}/questoes`, {
       enunciado,
     });
+  }
+
+  atualizar(id: number, enunciado: string) {
+    return this._http.patch(`${environment.apiURL}/questoes/${id}`, {
+      enunciado,
+    });
+  }
+
+  remover(id: number) {
+    return this._http.delete(`${environment.apiURL}/questoes/${id}`)
+  }
+
+  definirCategoria(questaoId: number, categoriaId: number) {
+    return this._http.put<void>(
+      `${environment.apiURL}/questoes/${questaoId}/categoria/${categoriaId}`,
+      {}
+    );
   }
 
   definirReposta(questaoId: number, alternativaId: number) {

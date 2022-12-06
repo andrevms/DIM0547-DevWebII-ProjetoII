@@ -77,6 +77,13 @@ export class CadastrarQuestaoComponent implements OnInit {
         switchMap((questao) =>
           this._provaHttpService.adicionarQuestao(this._provaId!, questao.id)
         ),
+        // adicionando categoria
+        switchMap((_q) =>
+          this._questaoHttpService.definirCategoria(
+            questao.id,
+            this.form.get('categoria')?.value
+          )
+        ),
         switchMap(() => {
           let i: number = 0;
           const obj: { [i: number]: Observable<IAlternativa> } = {};
