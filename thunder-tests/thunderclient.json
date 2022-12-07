@@ -707,12 +707,12 @@
     "method": "POST",
     "sortNum": 70000,
     "created": "2022-11-28T14:46:17.361Z",
-    "modified": "2022-11-28T14:46:17.361Z",
+    "modified": "2022-12-06T20:52:42.956Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"nome\": \"Fulano Admin\",\n    \"email\": \"fulanoadmin@email.com\",\n    \"senha\": \"123\"\n}",
+      "raw": "{\n    \"nome\": \"Fulano\",\n    \"email\": \"fulano123@email.com\",\n    \"senha\": \"123\"\n}",
       "form": []
     },
     "tests": []
@@ -1220,6 +1220,39 @@
     "auth": {
       "type": "bearer",
       "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc3NjkwNTV9.s6JKnq40wnjgYmJQojsEok1W3rzRRmDcVaKzDBXecfOZm80AE_qZknKgf4l-7liL3NZ0GZbfqJo2Fu_kymHPMA"
+    },
+    "tests": []
+  },
+  {
+    "_id": "2097f41e-7e2c-4e9f-8bd0-70f6b4355e11",
+    "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
+    "containerId": "dbbe2efa-bf48-4b80-8c5a-7a6f54ad6621",
+    "name": "delete",
+    "url": "/usuarios/6/",
+    "method": "DELETE",
+    "sortNum": 330000,
+    "created": "2022-12-06T17:05:08.728Z",
+    "modified": "2022-12-06T21:04:31.354Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "016d714e-928c-4ca6-9585-16394002cb5e",
+    "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
+    "containerId": "dbbe2efa-bf48-4b80-8c5a-7a6f54ad6621",
+    "name": "permissoes",
+    "url": "/usuarios/fulano123@email.com/email/permissao",
+    "method": "POST",
+    "sortNum": 340000,
+    "created": "2022-12-06T17:38:50.503Z",
+    "modified": "2022-12-06T21:04:19.337Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{ \n  \n} ",
+      "form": []
     },
     "tests": []
   }

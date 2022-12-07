@@ -7,6 +7,15 @@
     <button mat-icon-button color="primary" aria-label="Lista de Estudo">
       <mat-icon>list</mat-icon>
     </button>
+    <button
+      *ngIf="this.temPapel()"
+      [routerLink]="['/admin/']"
+      mat-icon-button
+      color="primary"
+      aria-label="admin_panel_settings"
+    >
+      <mat-icon>admin_panel_settings</mat-icon>
+    </button>
 
     <button
       [matMenuTriggerFor]="menu_perfil"

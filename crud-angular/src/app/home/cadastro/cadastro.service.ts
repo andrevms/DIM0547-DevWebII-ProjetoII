@@ -9,9 +9,13 @@ const API = environment.apiURL;
   providedIn: 'root',
 })
 export class CadastroService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   cadastrarNovoUsuario(usuario: NovoUsuario) {
     return this.http.post(`${API}/usuarios`, usuario);
+  }
+
+  cadastrarPermissoes(usuario: NovoUsuario) {
+    return this.http.post(`${API}/usuarios/${usuario.email}/email/permissao`, {});
   }
 }
