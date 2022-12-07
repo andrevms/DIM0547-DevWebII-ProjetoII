@@ -12,7 +12,7 @@
       </mat-card-header>
       <mat-card-content>
         <p>
-          Gerenciar (cadastrar, remover, excluir) provas de concursos e suas
+          Gerenciar (cadastrar, editar, excluir) provas de concursos e suas
           respectivas questões e alternativas
         </p>
       </mat-card-content>
@@ -29,7 +29,7 @@
       </mat-card-header>
       <mat-card-content>
         <p>
-          Gerenciar (cadastrar, remover, excluir) categorias de questões de
+          Gerenciar (cadastrar, editar, excluir) categorias de questões de
           concursos
         </p>
       </mat-card-content>
@@ -49,6 +49,20 @@
       </mat-card-content>
       <mat-card-actions>
         <a mat-button [routerLink]="['/admin/usuario']">GERENCIAR</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="col-3">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Permissões</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Gerenciar (criar, editar, excluir) permissões</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button [routerLink]="['/admin/permissao']">GERENCIAR</a>
       </mat-card-actions>
     </mat-card>
   </div>

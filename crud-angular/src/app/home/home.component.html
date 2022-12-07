@@ -4,8 +4,10 @@
   </div>
 </div>
 
-<div class="row mb-3" *ngFor="let q of questoes">
-  <div class="col">
-    <app-questao [questao]="q"></app-questao>
+<div *ngIf="questoes$ | async as questoes">
+  <div class="row mb-3" *ngFor="let q of questoes">
+    <div class="col">
+      <app-questao [questao]="q"></app-questao>
+    </div>
   </div>
 </div>

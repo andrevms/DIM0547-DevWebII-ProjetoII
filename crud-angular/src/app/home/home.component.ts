@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { SessaoUsuarioService } from '../autenticacao/sessao-usuario.service';
+import { IRecuperarQuestaoResponse } from '../common/dto/recuperar-questao-response';
 import { QuestaoHttpService } from '../common/http/questao-http.service';
 import { IQuestao } from '../common/models/questao';
 
@@ -9,22 +11,16 @@ import { IQuestao } from '../common/models/questao';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  questoes: IQuestao[] = [];
+  questoes$!: Observable<IQuestao[]>;
 
-  constructor(private _questaoHttpService: QuestaoHttpService,
-    private _sessaoUsuarioService: SessaoUsuarioService) { }
+  constructor(
+    private _questaoHttpService: QuestaoHttpService,
+    private _sessaoUsuarioService: SessaoUsuarioService
+  ) {}
 
   ngOnInit() {
     if (this._sessaoUsuarioService.estaLogado()) {
-      this._carregarQuestao();
+      this.questoes$ = this._questaoHttpService.recuperar();
     }
-  }
-
-  private _carregarQuestao() {
-    this._questaoHttpService.recuperar().subscribe((res) => {
-      this.questoes = res as any;
-      console.log(res);
-
-    });
   }
 }
