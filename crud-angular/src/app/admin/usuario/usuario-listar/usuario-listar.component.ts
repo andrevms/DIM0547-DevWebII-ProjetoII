@@ -1,3 +1,4 @@
+import { NovoUsuario } from './../../../home/cadastro/NovoUsuario';
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
@@ -11,12 +12,35 @@ import { UsuarioHttpService } from 'src/app/common/http/usuario-http.service';
   styleUrls: ['./usuario-listar.component.scss'],
 })
 export class UsuarioListarComponent {
-  usuarios$!: Observable<IListarUsuarioResponseDto[]>;
+  usuarios$: IListarUsuarioResponseDto[] = [];
   displayedColumns: string[] = ['nome', 'acoes'];
 
-  constructor(private _usuarioHttpService: UsuarioHttpService) {}
+  constructor(private _usuarioHttpService: UsuarioHttpService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.usuarios$ = this._usuarioHttpService.recuperar();
+    this._carregarUsuarios();
+  }
+
+  private _carregarUsuarios() {
+    const sub = this._usuarioHttpService
+      .recuperar()
+      .subscribe((res) => (this.usuarios$ = res));
+  }
+
+  excluir(el: IListarUsuarioResponseDto) {
+    this._usuarioHttpService.excluir(el.id).subscribe({
+      next: () => {
+        this._carregarUsuarios();
+        this._snackBar.open('Usuario excluída com sucesso', 'Fechar', {
+          duration: 3500,
+        });
+      },
+      error: () => {
+        this._snackBar.open('Não foi possível excluír este Usuario', 'Fechar', {
+          duration: 3500,
+        });
+      },
+    });
   }
 }
