@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessaoUsuarioService } from '../autenticacao/sessao-usuario.service';
 import { QuestaoHttpService } from '../common/http/questao-http.service';
 import { IQuestao } from '../common/models/questao';
 
@@ -10,10 +11,13 @@ import { IQuestao } from '../common/models/questao';
 export class HomeComponent implements OnInit {
   questoes: IQuestao[] = [];
 
-  constructor(private _questaoHttpService: QuestaoHttpService) {}
+  constructor(private _questaoHttpService: QuestaoHttpService,
+    private _sessaoUsuarioService: SessaoUsuarioService) { }
 
   ngOnInit() {
-    this._carregarQuestao();
+    if (this._sessaoUsuarioService.estaLogado()) {
+      this._carregarQuestao();
+    }
   }
 
   private _carregarQuestao() {
