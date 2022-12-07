@@ -23,6 +23,12 @@ const routes: Routes = [
     canLoad: [PermissaoAdminGuard],
   },
   {
+    path: 'usuario',
+    loadChildren: () =>
+      import('./usuario/usuario.module').then((m) => m.UsuarioModule),
+    canLoad: [PermissaoAdminGuard],
+  },
+  {
     path: 'sem-autorizacao',
     component: SemAutorizacaoComponent,
   },
