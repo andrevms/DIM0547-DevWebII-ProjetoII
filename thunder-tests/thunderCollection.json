@@ -163,11 +163,11 @@
       ],
       "auth": {
         "type": "bearer",
-        "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njk3Mzc2NTl9.1uMQZbL482Gn_q_apKfNvFDh3XhwP6CTcBV4G9O1-tn7G45pyOhCZtyvuUDZh1VrJmwxi31s08qMnbcSKTbVMQ"
+        "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmZUBnbWFpbC5jb20iLCJleHAiOjE2NzA0NjI1MTF9.x_wRjMk7bf4EIVenQIT1T85BGiMwOY6WU4lXj4TBfZzLot8keQWMWSCA5EexWlV5DzvZCMK64tg6EiU-BTnbRA"
       },
       "tests": [],
       "options": {
-        "baseUrl": "http://localhost:8000/api"
+        "baseUrl": "http://localhost:8080/api"
       }
     }
   }

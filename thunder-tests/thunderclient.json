@@ -611,21 +611,17 @@
     "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
     "containerId": "aefed71b-c5d4-4a7d-ab3c-bb4f76d4188d",
     "name": "criar",
-    "url": "http://localhost:8080/api/alternativa",
+    "url": "/alternativa",
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-11-28T14:46:17.355Z",
-    "modified": "2022-11-28T14:46:17.355Z",
+    "modified": "2022-12-07T20:07:42.875Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"questaoId\": 1,\n  \"alternativa\": \"Teste 4\"\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmdWxhbm9hZG1pbkBlbWFpbC5jb20iLCJleHAiOjE2Njc3NjkwNTV9.s6JKnq40wnjgYmJQojsEok1W3rzRRmDcVaKzDBXecfOZm80AE_qZknKgf4l-7liL3NZ0GZbfqJo2Fu_kymHPMA"
     },
     "tests": []
   },
@@ -918,17 +914,13 @@
     "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
     "containerId": "32a058b1-fbaf-42f0-a353-7181c9de8818",
     "name": "Get",
-    "url": "/questoes/",
+    "url": "/questoes",
     "method": "GET",
     "sortNum": 200000,
     "created": "2022-11-28T14:46:17.373Z",
-    "modified": "2022-11-28T14:46:17.373Z",
+    "modified": "2022-12-07T20:07:56.704Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "{{tokenadmin}}"
-    },
     "tests": []
   },
   {
@@ -1087,21 +1079,17 @@
     "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
     "containerId": "08a7a11b-047c-4635-afa1-c6b951ea5911",
     "name": "criar",
-    "url": "{{host}}/api/prova",
+    "url": "/prova",
     "method": "POST",
     "sortNum": 280000,
     "created": "2022-11-28T14:46:17.381Z",
-    "modified": "2022-11-28T14:46:17.381Z",
+    "modified": "2022-12-07T19:25:08.613Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"nome\": \"Prova 1\"\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "{{tokenadmin}}"
     },
     "tests": []
   },
@@ -1133,17 +1121,13 @@
     "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
     "containerId": "08a7a11b-047c-4635-afa1-c6b951ea5911",
     "name": "listar",
-    "url": "{{host}}/api/prova",
+    "url": "/prova",
     "method": "GET",
     "sortNum": 290000,
     "created": "2022-11-28T14:46:17.383Z",
-    "modified": "2022-11-28T14:46:17.383Z",
+    "modified": "2022-12-07T19:15:55.308Z",
     "headers": [],
     "params": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "{{tokenadmin}}"
-    },
     "tests": []
   },
   {
@@ -1187,21 +1171,17 @@
     "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
     "containerId": "08a7a11b-047c-4635-afa1-c6b951ea5911",
     "name": "adicionar-questao",
-    "url": "{{host}}/api/prova/2/questao",
+    "url": "/prova/2/questao",
     "method": "POST",
     "sortNum": 320000,
     "created": "2022-11-28T14:46:17.386Z",
-    "modified": "2022-11-28T14:46:17.386Z",
+    "modified": "2022-12-07T19:26:04.293Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"questaoId\": 1\n}",
       "form": []
-    },
-    "auth": {
-      "type": "bearer",
-      "bearer": "{{tokenadmin}}"
     },
     "tests": []
   },

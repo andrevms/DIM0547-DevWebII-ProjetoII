@@ -65,7 +65,7 @@ public class SecurityConfig {
                             .hasAnyRole("ADMIN","CLIENTEPRO")
 
                         .antMatchers("/api/questoes/**")
-                            .hasAnyRole("ADMIN","CLIENTEFREE", "CLIENTEPRO")
+                            .hasAnyRole("ADMIN","CLIENTEPRO", "CLIENTEFREE")
 
                         .antMatchers(HttpMethod.POST, "/api/usuarios/**")
                             .permitAll()
