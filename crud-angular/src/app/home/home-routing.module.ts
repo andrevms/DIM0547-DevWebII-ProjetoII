@@ -9,18 +9,16 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    children: [
-      {
-        path: 'autenticacao/entrar',
-        component: LoginComponent,
-        canActivate: [SessaoAtivaGuard]
-      },
-      {
-        path: 'autenticacao/cadastro',
-        component: CadastroComponent,
-        canActivate: [SessaoAtivaGuard]
-      },
-    ],
+  },
+  {
+    path: 'autenticacao/entrar',
+    component: LoginComponent,
+    canActivate: [SessaoAtivaGuard],
+  },
+  {
+    path: 'autenticacao/cadastro',
+    component: CadastroComponent,
+    canActivate: [SessaoAtivaGuard],
   },
 ];
 
