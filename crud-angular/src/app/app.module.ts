@@ -15,6 +15,7 @@ import { ListaPermissoesComponent } from './permissoes/lista-permissoes/lista-pe
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 function verificacaoDeSessaoAtiva(
   sessaoUsuarioService: SessaoUsuarioService,
@@ -50,6 +51,7 @@ function verificacaoDeSessaoAtiva(
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
+    RouterModule
   ],
   providers: [
     {

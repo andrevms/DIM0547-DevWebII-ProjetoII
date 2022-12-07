@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<div class="row">
+  <div class="col">
+    <h1>Questões</h1>
+  </div>
+</div>
+
+<div class="row mb-3" *ngFor="let q of questoes">
+  <div class="col">
+    <app-questao [questao]="q"></app-questao>
+  </div>
+</div>
