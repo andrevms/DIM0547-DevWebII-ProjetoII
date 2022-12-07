@@ -35,5 +35,6 @@ export class AppComponent {
   logout() {
     this._sessaoUsuarioService.destruirSessao();
     this._router.navigate(['']);
+    window.location.reload();
   }
 }

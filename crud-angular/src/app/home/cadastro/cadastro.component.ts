@@ -17,7 +17,7 @@ export class CadastroComponent {
     private formBuilder: FormBuilder,
     private cadastroService: CadastroService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.cadastroForm = this.formBuilder.group({
@@ -27,6 +27,15 @@ export class CadastroComponent {
     });
   }
 
+  gerarPermissao(usuario: NovoUsuario) {
+    this.cadastroService.cadastrarPermissoes(usuario).subscribe(
+      () => { },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   cadastrar() {
     if (this.cadastroForm.valid) {
       const usuario: NovoUsuario =
@@ -34,6 +43,7 @@ export class CadastroComponent {
       this.cadastroService.cadastrarNovoUsuario(usuario).subscribe(
         () => {
           this.router.navigate(['autenticacao/entrar']);
+          this.gerarPermissao(usuario);
         },
         (error) => {
           console.log(error);
