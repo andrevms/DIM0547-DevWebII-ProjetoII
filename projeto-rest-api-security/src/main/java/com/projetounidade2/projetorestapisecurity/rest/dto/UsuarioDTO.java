@@ -22,7 +22,9 @@ public class UsuarioDTO {
         this.id = usuario.getId();
         this.nome = usuario.getNome();
         this.email = usuario.getEmail();
-        this.permissoes = PermissaoDTO.converter(usuario.getPermissoes());
+        if(usuario.getPermissoes() != null) {
+            this.permissoes = PermissaoDTO.converter(usuario.getPermissoes());
+        }
     }
 
     public static List<UsuarioDTO> converter(List<Usuario> listUsuario) {
@@ -30,8 +32,7 @@ public class UsuarioDTO {
     }
 
     public static UsuarioDTO converter(Usuario usuario) {
-        UsuarioDTO dto = new UsuarioDTO();
-        dto.setNome(usuario.getNome());
-        return null;
+        UsuarioDTO dto = new UsuarioDTO(usuario);
+        return dto;
     }
 }

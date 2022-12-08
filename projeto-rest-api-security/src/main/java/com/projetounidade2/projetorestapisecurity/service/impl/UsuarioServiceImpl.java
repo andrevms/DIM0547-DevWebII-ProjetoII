@@ -48,6 +48,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario atribuirPermissao(Integer id, Permissao permissao) {
         Usuario usuario = getUsuarioById(id);
+        usuario.getPermissoes().clear();
         usuario.getPermissoes().add(permissao);
         return repository.save(usuario);
     }
@@ -104,5 +105,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public List<Usuario> getListUsuario() {
         return repository.findAll();
+    }
+
+    @Override
+    public Usuario atribuirPermissaoPorEmail(String email, Permissao permissao) {
+        Usuario usuario = findByEmail(email);
+        usuario.getPermissoes().add(permissao);
+        return repository.save(usuario);
     }
 }

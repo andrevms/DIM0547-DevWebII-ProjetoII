@@ -43,6 +43,11 @@ public class CategoriaController {
         return a;
     }
 
+    @GetMapping("{id}")
+    public CategoriaCompletaDTO getById(@PathVariable Integer id) {
+        return new CategoriaCompletaDTO(categoriaService.recuperarPorId(id));
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<CategoriaDTO> save(@RequestBody @Valid CategoriaForm form, UriComponentsBuilder uriBuilder) {

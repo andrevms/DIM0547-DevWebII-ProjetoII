@@ -33,7 +33,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .httpBasic().and().csrf().disable()
+            .httpBasic()
+            .and().cors()
+            .and().csrf().disable()
             .authorizeHttpRequests((authz) -> {
                 try {
                     authz
@@ -63,7 +65,7 @@ public class SecurityConfig {
                             .hasAnyRole("ADMIN","CLIENTEPRO")
 
                         .antMatchers("/api/questoes/**")
-                            .hasAnyRole("ADMIN","CLIENTEFREE", "CLIENTEPRO")
+                            .hasAnyRole("ADMIN","CLIENTEPRO", "CLIENTEFREE")
 
                         .antMatchers(HttpMethod.POST, "/api/usuarios/**")
                             .permitAll()

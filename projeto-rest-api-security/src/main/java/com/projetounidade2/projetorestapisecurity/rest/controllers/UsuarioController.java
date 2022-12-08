@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,6 +48,12 @@ public class UsuarioController {
        return UsuarioDTO.converter(usuarioService.getListUsuario()); 
     }
 
+    @GetMapping("/{id}")
+    public UsuarioDTO findById(@PathVariable Integer id) {
+        Usuario usuario = usuarioService.getUsuarioById(id);
+        return UsuarioDTO.converter(usuario);
+    }
+
     @GetMapping("/info")
     public Usuario info(Principal principal) {
         Usuario usuario = usuarioService.findByEmail(principal.getName());
@@ -56,13 +63,13 @@ public class UsuarioController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public UsuarioDTO salvar( @RequestBody @Valid Usuario usuario ) {
+
         if(usuarioService.isEmailNotUsed(usuario)){
             String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
             usuario.setSenha(senhaCriptografada);
             return UsuarioDTO.converter(usuarioService.salvar(usuario));
-        }else{
-            return null;
         }
+        return new UsuarioDTO();
     }
 
     @PostMapping("/auth")
@@ -86,5 +93,19 @@ public class UsuarioController {
             Usuario usuario = usuarioService.atribuirPermissao(id, permissao);
             return new UsuarioDTO(usuario);
 
+    }
+    @PostMapping("{email}/email/permissao")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public UsuarioDTO atribuirPermissaoporEmail(@PathVariable String email) {
+            Permissao permissao = permissaoService.getPermissaoByNome("ROLE_CLIENTEFREE");
+            Usuario usuario = usuarioService.atribuirPermissaoPorEmail(email, permissao);
+            return new UsuarioDTO(usuario);
+
+    }
+
+
+    @DeleteMapping("{id}")
+    public void deletar(@PathVariable("id") String id) {
+        usuarioService.removeUsuario(usuarioService.getUsuarioById(Integer.parseInt(id)));
     }
 }

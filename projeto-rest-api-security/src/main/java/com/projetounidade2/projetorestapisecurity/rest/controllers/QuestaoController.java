@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -47,24 +48,34 @@ public class QuestaoController {
         return ResponseEntity.ok(list);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<QuestaoCompletaDTO> recuperarPorId(@PathVariable Integer id) {
+        return ResponseEntity.ok(QuestaoCompletaDTO.from(questaoService.getQuestaoById(id)));
+    }
+
+    @PatchMapping("{id}")
+    public void atualizar(@PathVariable Integer id, @RequestBody QuestaoDto categoria) {
+        questaoService.atualizarQuestaoEnunciado(id, categoria.getEnunciado());
+    }
+
     @PutMapping("{id}/categoria")
-    public ResponseEntity<QuestaoCompletaDTO> update(@PathVariable Integer id,
-                       @RequestBody CategoriaDTO categoria) {
+    public ResponseEntity<QuestaoCompletaDTO> updateCategoria(@PathVariable Integer id,
+            @RequestBody CategoriaDTO categoria) {
         try {
             Categoria cat = categoriaService.getCategoriaByNome(categoria.getCategoria());
             Questao q = questaoService.getQuestaoById(id);
-            
-            if(cat == null){
+
+            if (cat == null) {
                 throw new RegraNegocioException("Alternativa nao encontrada");
             }
-            if( q == null) {
+            if (q == null) {
                 throw new RegraNegocioException("Questao nao encontrada");
             }
             q.setCategoria(cat);
             questaoService.saveQuestao(q);
             return ResponseEntity.ok(QuestaoCompletaDTO.from(q));
         } catch (Exception e) {
-           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nao encontrado");
         }
     }
 
@@ -76,13 +87,13 @@ public class QuestaoController {
             questaoService.saveQuestao(q);
             return ResponseEntity.ok(QuestaoCompletaDTO.from(q));
         } catch (Exception e) {
-           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Questão não encontrada");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Questão não encontrada");
         }
     }
 
     @PutMapping("{id}/resposta")
     public ResponseEntity<QuestaoCompletaDTO> update(@PathVariable Integer id,
-                       @RequestBody AlternativaDto alternativa) {
+            @RequestBody AlternativaDto alternativa) {
         try {
             Alternativa alt = alternativaService.recuperarPorId(alternativa.getId());
             Questao q = questaoService.getQuestaoById(id);
@@ -90,57 +101,73 @@ public class QuestaoController {
             questaoService.saveQuestao(q);
             return ResponseEntity.ok(QuestaoCompletaDTO.from(q));
         } catch (Exception e) {
-           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alternativa não encontrada");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alternativa não encontrada");
         }
     }
 
     @PutMapping("{id}/alternativa")
     public ResponseEntity<QuestaoCompletaDTO> updateAlternativas(@PathVariable Integer id,
-                       @RequestBody AlternativaDto alternativa) {
+            @RequestBody AlternativaDto alternativa) {
         try {
             Alternativa alt = alternativaService.recuperarPorId(alternativa.getId());
             Questao q = questaoService.getQuestaoById(id);
 
             List<Alternativa> list = q.getAlternativas();
-            if (list.add(alt)){
+            if (list.add(alt)) {
                 q.setAlternativas(list);
                 questaoService.saveQuestao(q);
                 return ResponseEntity.ok(QuestaoCompletaDTO.from(q));
-            }else {
+            } else {
                 throw new RegraNegocioException("List não atualizada");
             }
 
         } catch (Exception e) {
-           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alternativa não encontrada");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alternativa não encontrada");
+        }
+    }
+
+    @PutMapping("{id}/categoria/{categoriaId}")
+    public ResponseEntity<String> definirCategoria(@PathVariable Integer id,
+            @PathVariable Integer categoriaId) {
+        try {
+            Questao q = questaoService.getQuestaoById(id);
+            Categoria c = categoriaService.recuperarPorId(categoriaId);
+
+            questaoService.definirCategoria(q, c);
+
+            return ResponseEntity.ok("{}");
+
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alternativa não encontrada");
         }
     }
 
     @PutMapping("{id}/alternativa/remover")
     public ResponseEntity<QuestaoCompletaDTO> removeAlternativasDaQuestao(@PathVariable Integer id,
-                       @RequestBody AlternativaDto alternativa) {
+            @RequestBody AlternativaDto alternativa) {
         try {
             Alternativa alt = alternativaService.recuperarPorId(alternativa.getId());
 
             Questao q = questaoService.getQuestaoById(id);
 
             List<Alternativa> list = q.getAlternativas();
-            if (alt != null){
+            if (alt != null) {
                 list.remove(alt);
                 q.setAlternativas(list);
                 questaoService.saveQuestao(q);
 
-                if(q.getResposta() == alt){
+                if (q.getResposta() == alt) {
                     q.setResposta(null);
                 }
 
                 alternativaService.remover(alt.getId());
-               
+
                 return ResponseEntity.ok(QuestaoCompletaDTO.from(q));
             }
-            
+
             throw new RegraNegocioException("List não atualizada");
         } catch (Exception e) {
-           throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alternativa não encontrada");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alternativa não encontrada");
         }
     }
 
@@ -156,9 +183,9 @@ public class QuestaoController {
 
     @DeleteMapping("{id}")
     public void remover(@PathVariable("id") String id) {
-        try{
+        try {
             questaoService.removeQuestao(id);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Questao não encontrada");
         }
 

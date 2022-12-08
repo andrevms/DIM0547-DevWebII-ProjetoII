@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.projetounidade2.projetorestapisecurity.model.Categoria;
 import com.projetounidade2.projetorestapisecurity.model.Questao;
 import com.projetounidade2.projetorestapisecurity.repository.QuestaoRepository;
 import com.projetounidade2.projetorestapisecurity.service.QuestaoService;
@@ -28,6 +29,11 @@ public class QuestaoServiceImpl implements QuestaoService {
         return questaoRepository.findById(id).map(questao -> {
             return questao;
         }).orElseThrow(() -> null);
+    }
+
+    public void definirCategoria(Questao questao, Categoria categoria) {
+        questao.setCategoria(categoria);
+        questaoRepository.save(questao);
     }
 
     @Override
