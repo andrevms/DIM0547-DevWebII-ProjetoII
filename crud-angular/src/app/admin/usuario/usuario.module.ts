@@ -10,9 +10,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PermissaoComponent } from './permissao/permissao.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
-  declarations: [UsuarioListarComponent],
+  declarations: [UsuarioListarComponent, PermissaoComponent],
   imports: [
     CommonModule,
     UsuarioRoutingModule,
@@ -23,6 +25,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     MatIconModule,
     MatSnackBarModule,
+    MatRadioModule,
   ],
 })
 export class UsuarioModule {}

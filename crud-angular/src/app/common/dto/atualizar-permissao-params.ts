@@ -1,3 +1,3 @@
 export interface IAtualizarPermissaoParams {
-  nome: string;
+  nomePermissao: string;
 }
