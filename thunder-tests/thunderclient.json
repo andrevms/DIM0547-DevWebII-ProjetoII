@@ -703,12 +703,12 @@
     "method": "POST",
     "sortNum": 70000,
     "created": "2022-11-28T14:46:17.361Z",
-    "modified": "2022-12-06T20:52:42.956Z",
+    "modified": "2022-12-08T15:15:56.762Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"nome\": \"Fulano\",\n    \"email\": \"fulano123@email.com\",\n    \"senha\": \"123\"\n}",
+      "raw": "{\n    \"nome\": \"Fulano\",\n    \"email\": \"fulano1450@email.com\",\n    \"senha\": \"123\"\n}",
       "form": []
     },
     "tests": []
@@ -736,12 +736,12 @@
     "method": "POST",
     "sortNum": 90000,
     "created": "2022-11-28T14:46:17.363Z",
-    "modified": "2022-11-28T14:46:17.363Z",
+    "modified": "2022-12-08T11:41:21.789Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"nome\": \"ADMIN\"\n}\n",
+      "raw": "{\n    \"nome\": \"ROLE_ADMIN\"\n}\n",
       "form": []
     },
     "tests": []
@@ -774,12 +774,12 @@
     "method": "PUT",
     "sortNum": 110000,
     "created": "2022-11-28T14:46:17.365Z",
-    "modified": "2022-11-28T14:46:17.365Z",
+    "modified": "2022-12-08T11:41:28.168Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"nome\": \"CLIENTEPRO\"\n}",
+      "raw": "{\n    \"nome\": \"ROLE_CLIENTEPRO\"\n}",
       "form": []
     },
     "tests": []
@@ -885,12 +885,12 @@
     "method": "POST",
     "sortNum": 170000,
     "created": "2022-11-28T14:46:17.371Z",
-    "modified": "2022-11-28T14:46:17.371Z",
+    "modified": "2022-12-08T11:40:54.284Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"nomePermissao\": \"ADMIN\"\n}",
+      "raw": "{\n    \"nomePermissao\": \"ROLE_ADMIN\"\n}",
       "form": []
     },
     "tests": []
@@ -1234,6 +1234,58 @@
       "raw": "{ \n  \n} ",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "5ba009aa-cdfc-4414-a0e7-7adcdc85a38c",
+    "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
+    "containerId": "32708e3e-b9a3-4808-8c29-53dcc7c79884",
+    "name": "post",
+    "url": "/lista-de-estudos",
+    "method": "POST",
+    "sortNum": 350000,
+    "created": "2022-12-07T22:19:25.627Z",
+    "modified": "2022-12-07T22:21:02.983Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"nome\": \"minha listinha\"\n}\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "55ca0c84-d47e-46fa-a2ba-a6aeb9bc4700",
+    "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
+    "containerId": "32708e3e-b9a3-4808-8c29-53dcc7c79884",
+    "name": "post Copy",
+    "url": "/lista-de-estudos/1",
+    "method": "PATCH",
+    "sortNum": 360000,
+    "created": "2022-12-07T22:26:57.431Z",
+    "modified": "2022-12-07T22:27:18.253Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"nome\": \"minha listinha2\"\n}\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "724981e7-d4e7-4f7d-82a6-152bff5088bc",
+    "colId": "508416b1-22ad-4b66-888f-ca00b5b68268",
+    "containerId": "dbbe2efa-bf48-4b80-8c5a-7a6f54ad6621",
+    "name": "get by id",
+    "url": "/usuarios/2",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-12-08T10:51:18.582Z",
+    "modified": "2022-12-08T10:59:40.978Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]

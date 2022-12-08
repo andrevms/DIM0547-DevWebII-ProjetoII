@@ -48,6 +48,12 @@ public class UsuarioController {
        return UsuarioDTO.converter(usuarioService.getListUsuario()); 
     }
 
+    @GetMapping("/{id}")
+    public UsuarioDTO findById(@PathVariable Integer id) {
+        Usuario usuario = usuarioService.getUsuarioById(id);
+        return UsuarioDTO.converter(usuario);
+    }
+
     @GetMapping("/info")
     public Usuario info(Principal principal) {
         Usuario usuario = usuarioService.findByEmail(principal.getName());
@@ -57,13 +63,13 @@ public class UsuarioController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public UsuarioDTO salvar( @RequestBody @Valid Usuario usuario ) {
+
         if(usuarioService.isEmailNotUsed(usuario)){
             String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
             usuario.setSenha(senhaCriptografada);
             return UsuarioDTO.converter(usuarioService.salvar(usuario));
-        }else{
-            return null;
         }
+        return new UsuarioDTO();
     }
 
     @PostMapping("/auth")

@@ -19,7 +19,7 @@ public class UsuarioPermissaoForm {
 
     public void setNomePermissao(String nomePermissao) {
 
-        this.nomePermissao = "ROLE_" + nomePermissao;
+        this.nomePermissao = nomePermissao;
     }
     
 

@@ -48,6 +48,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario atribuirPermissao(Integer id, Permissao permissao) {
         Usuario usuario = getUsuarioById(id);
+        usuario.getPermissoes().clear();
         usuario.getPermissoes().add(permissao);
         return repository.save(usuario);
     }

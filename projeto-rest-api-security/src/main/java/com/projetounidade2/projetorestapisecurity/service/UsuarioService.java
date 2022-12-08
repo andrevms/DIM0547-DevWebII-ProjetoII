@@ -24,9 +24,11 @@ public interface UsuarioService extends UserDetailsService {
     public List<Usuario> getListUsuario();
 
     public Usuario atribuirPermissao(Integer id, Permissao permissao);    
+
     public Usuario atribuirPermissaoPorEmail(String email, Permissao permissao); 
 
     public UserDetails autenticar(Usuario usuario);
 
     public Boolean isEmailNotUsed(Usuario usuario);
+
 }

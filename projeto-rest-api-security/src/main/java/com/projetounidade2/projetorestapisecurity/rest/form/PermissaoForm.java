@@ -19,7 +19,7 @@ public class PermissaoForm {
 
     public Permissao converter() {
         Permissao permissao = new Permissao();
-        permissao.setNome("ROLE_" + this.nome);
+        permissao.setNome(this.nome);
         return permissao;
     }
 
