@@ -14,6 +14,7 @@ import { SessaoUsuarioService } from './autenticacao/sessao-usuario.service';
 })
 export class AppComponent {
   title = 'Estuda Concursos';
+  UsuarioPapel = UsuarioPapel;
 
   constructor(
     private _autorizacaoService: AutorizacaoService,
@@ -25,12 +26,8 @@ export class AppComponent {
     return this._sessaoUsuarioService.estaLogado();
   }
 
-  temPapel() {
-    if (this._autorizacaoService.temPapel(UsuarioPapel.Administrador)) {
-      return true;
-    } else {
-      return false;
-    }
+  temPapel(papel: UsuarioPapel) {
+    return this._autorizacaoService.temPapel(papel);
   }
 
   logout() {

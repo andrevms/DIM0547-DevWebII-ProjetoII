@@ -14,7 +14,7 @@ export class SessaoUsuarioService {
     this._sessao = sessao;
   }
 
-  recuperarSessao() {
+  recuperarSessao(): IUsuarioAutenticadoInfoResponseDto | undefined {
     return this._sessao;
   }
 

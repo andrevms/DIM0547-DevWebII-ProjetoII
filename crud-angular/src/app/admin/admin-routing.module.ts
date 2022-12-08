@@ -11,6 +11,14 @@ const routes: Routes = [
     canActivate: [PermissaoAdminGuard],
   },
   {
+    path: 'lista-de-estudo',
+    loadChildren: () =>
+      import('./lista-de-estudo/lista-de-estudo.module').then(
+        (m) => m.ListaDeEstudoModule
+      ),
+    canLoad: [PermissaoAdminGuard],
+  },
+  {
     path: 'prova',
     loadChildren: () =>
       import('./prova/prova.module').then((m) => m.ProvaModule),

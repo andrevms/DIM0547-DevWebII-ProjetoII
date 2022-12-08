@@ -28,10 +28,7 @@ export class PermissaoAdminGuard implements CanActivate, CanLoad {
   }
 
   temAutorizacaoDeAdmin() {
-    if (
-      this._autorizacaoService.temPapel(UsuarioPapel.Administrador) ||
-      this._autorizacaoService.temPapel(UsuarioPapel.ClienteFree)
-    ) {
+    if (this._autorizacaoService.temPapel(UsuarioPapel.Administrador)) {
       return true;
     } else {
       this._router.navigate(['/admin/sem-autorizacao']);

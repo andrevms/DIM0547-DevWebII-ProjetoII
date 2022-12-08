@@ -8,7 +8,7 @@
       <mat-icon>list</mat-icon>
     </button>
     <button
-      *ngIf="this.temPapel()"
+      *ngIf="temPapel(UsuarioPapel.Administrador)"
       [routerLink]="['/admin/']"
       mat-icon-button
       color="primary"
